@@ -1,0 +1,16 @@
+1.var a = 1;
+在函数中等价于在函数开头var a ;再在该语句处赋值a = 1;（var b = function(){}的b同理）
+
+2.git库同步后网页形式打开index.html;
+要么远程库命名github.io结尾，要么用分支“gh-pages”提交（可能要么就用TortoiseGit）。
+
+3.git远程本地库同步；
+有了git并git config --global user.name和user.email之后，注册Github或Coding.net后获取远程库的链接，在本地库上一级位置打开Git bash，输入“git clone”+远程库链接，添加文件到本地库后“git add”+文件名.后缀（“git add .”省打文件名了）,“git commit -m '添加描述'”,“git push”即可（git add .先添加   git commit -m ""再提交     git push最后推送）。
+
+4.git需要的常用命令；
+git add 添加
+git commit -m ""提交
+git push 推送
+（git）rm 删除
+（git）cd ..返回上一层级目录
+git checkout + 分支名   切换分支
