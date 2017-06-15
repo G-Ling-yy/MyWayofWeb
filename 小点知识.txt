@@ -9,13 +9,18 @@
 
 4.git需要的常用命令；
 git add 添加
-git commit -m ""提交
-git push 推送
+git commit -m ''提交
+git push 推送（第一次设置git push origin(远程库名) master(本地分支名)）
 git pull 拉取
 （git）rm 删除
 （git）cd ..返回上一层级目录
-git checkout + 分支名   切换分支
 git status 查看当前修改状态
+git branch 查看分支
+git branch xxx 新建xxx分支
+git checkout xxx 切换xxx分支
+git merge xxx 合并xxx分支
+git branch -d xxx 删除本地xxx分支
+git push origin(远程库名) --delete xxx 删除远程xxx分支
 
 5.html转义字符
 6.常用元数据
