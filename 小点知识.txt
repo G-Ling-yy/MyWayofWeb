@@ -11,6 +11,44 @@
 git add 添加
 git commit -m ""提交
 git push 推送
+git pull 拉取
 （git）rm 删除
 （git）cd ..返回上一层级目录
 git checkout + 分支名   切换分支
+git status 查看当前修改状态
+
+5.html转义字符
+6.常用元数据
+
+https://github.com/fe13
+a的href可以打电话？href='tel:+123456'
+a的download属性
+table的colgroup再瞅一下(border-collapse和border-spacing都要写在css table{}里有效)
+
+【hidden】html全局属性，
+form  <button type='reset'>重置无需脚本  required属性 maxlength,minlength瞅一下
+<input type='hidden'>前后端交流校验用  name属性在提交的时候用，否则服务器无法获取指定数据
+<form oninput>  output
+
+css语法中各种@ 看一下
+css选择器后面和{}之间加个空格习惯。
+box-sizing瞅一下，css *{}里会用到
+
+长度单位：rem（要用） vw, vh (和视口大小有关，很厉害)
+负的外边距可以增宽
+details标签summary
+
+inline-block默认间距取消方法；
+在inline-block元素们的父元素中加“font-size: 0;”即可，要么就在html结构中更改html结构。
+
+fontawesome
+text-decoration: underline wavy red;一个有趣的小效果
+text-indent: -9999px 一般通过首行缩进把文字做成消失效果，主要针对用户
+white-space再瞅一下，还有text-overflow
+position: sticky看一下
+学一下 img base64
+
+原生js为元素添加删除class的方法；
+classList属性，只读属性，但可以通过add()和remove()修改属性值，obj.classList.add('class1',
+'class2'),或者obj.classList.remove('class1','class2'),toggle('class1')可以实现添加/删除的切换,还有contains(),item()。
+
