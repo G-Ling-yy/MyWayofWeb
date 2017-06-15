@@ -12,9 +12,11 @@ git add 添加
 git commit -m ''提交
 git push 推送（第一次设置git push origin(远程库名) master(本地分支名)）
 git pull 拉取
-（git）rm 删除
-（git）cd ..返回上一层级目录
+rm 删除
+cd ..返回上一层级目录
 git status 查看当前修改状态
+git remote add origin(远程库名) https://···(远程库地址) 本地添加远程库联系
+git remote rm origin(远程库名) 删除远程库联系
 git branch 查看分支
 git branch xxx 新建xxx分支
 git checkout xxx 切换xxx分支
