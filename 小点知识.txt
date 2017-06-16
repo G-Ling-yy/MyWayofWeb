@@ -59,3 +59,5 @@ position: sticky看一下
 classList属性，只读属性，但可以通过add()和remove()修改属性值，obj.classList.add('class1',
 'class2'),或者obj.classList.remove('class1','class2'),toggle('class1')可以实现添加/删除的切换,还有contains(),item()。
 
+不定宽高元素水平垂直居中方法；
+flex; table-cell; translate; (absolute/fixed)+left:0;right:0;top:0;bottom:0;margin:auto。
