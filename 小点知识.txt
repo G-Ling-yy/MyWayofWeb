@@ -1,5 +1,5 @@
 ﻿1.var a = 1：
-在函数中等价于在函数开头var a ;再在该语句处赋值a = 1;（var b = function(){}的b同理）。
+在函数中等价于在函数开头var a ;再在该语句处赋值a = 1;（var b = function(){}的b同理,叫函数表达式，类似于function b()叫函数声明，函数声明会被提升(Hoist)到所处作用域的顶端）。
 
 2.git库同步后网页形式打开index.html：
 要么远程库命名github.io结尾，要么用分支“gh-pages”提交（可能要么就用TortoiseGit）。
@@ -12,8 +12,6 @@ git add 添加
 git commit -m ''提交
 git push 推送（第一次设置git push origin(远程库名) master(本地分支名)）
 git pull 拉取
-rm 删除
-cd ..返回上一层级目录
 git status 查看当前修改状态
 git remote add origin(远程库名) https://···(远程库地址) 本地添加远程库联系
 git remote rm origin(远程库名) 删除远程库联系
@@ -26,6 +24,7 @@ git push origin(远程库名) --delete xxx 删除远程xxx分支。
 
 5.html转义字符：
 常用转义字符：空格→&nbsp; <→&lt; >→&gt; &→&amp; ©→&copy。
+补充js转义字符：\+符号 空格→\0; 换行→\n。
 
 6.常用元数据（<meta>）：
 <meta charset="utf-8">
@@ -140,15 +139,136 @@ document.body.scrollTop 获取滚动条滚动高度，即距当前页面离顶�
 30.data-*：
 标准化下的自定义属性。  
 
-伪元素attr 
+31.css3filter（滤镜）：
+滤镜效果，blur(px),brightness(%),contrast(%),drop-shadow(h v blur spread color),
+grayscale(%),opacity(%)等值，opacity(%)和opacity属性差不多，grayscale(%)可以修改元素
+的灰度，兼容性目前以加各种前缀为主。
+
+32.text-align-last：
+除了left,right,center值之外，设置justify可以两端对齐。
+
+33.伪元素attr：
+元素的html中写入data-*属性（比如<span data-tips='abc'></span>），再在该元素的伪元素的
+content属性中用attr调用之前的data-*属性可以获取该属性值
+（比如span::before{content:attr(data-tips)}），其伪元素的内容就是例子中的'abc'，这个效果
+可以用在hover效果上，还可以制作半边色文字及相关特效，很好玩的。 
 
 
-http://staticfile.org/
+34.http://staticfile.org/和https://cdn.bootcss.com/和https://www.sassmeister.com/。
 
-选择器 > * {}，指某选择器下的所有后代元素。
+35.选择器 > * {}：
+指该选择器下的所有后代元素。
 
-.a.b，（中间没有空格）指的是同时有a类和b类的元素选择器。
+36.形如.a.b的选择器（中间没有空格）：
+指的是同时有a类和b类的元素选择器。
 
-<!--[if lt lte gt gte IE 8]><![endif]-->对IE8前后的兼容判断
+37.IE的兼容判断：
+<!--[if lt lte gt gte IE 8]><![endif]-->对IE8前后的兼容判断（多个类写法判断的时候，最后一个
+if前面的'--'要去掉）
+除了lt gt之外还有()子表达式，&和|和!的逻辑与或非
 
-(function(){})();
+
+38.(function(){})();待完成！！！~（它有自己独立的作用域）
+
+39.script async属性,defer属性
+
+40.`：
+js字符串除了'和"还可以用反引号`包裹，用`包裹的字符串里面可以添加任意的'，"等符号，还可以直接保留换行，最牛B可以用${}内嵌表达式，比如`1+1=${1+1}`输出的字符串就是`1+1=2`。
+
+41.nodejs：
+node -v 查看node版本
+npm -v 查看npm版本
+node 进入node.js交互环境，可以执行js语句
+.exit 退出node.js交互环境，Ctrl+D 也可以，Ctrl+C两次也可以
+.help 查看nodejs交互环境帮助
+node-sass -wro css sass 为sass文件夹添加事件监听（文件夹名随便写，一致就行），在css目录下生成指定css文件，即编译
+
+42.命令行：
+explorer . 通过资源管理器打开当前目录
+md(mkdir也行~) xxx 新建xxx文件夹
+rmdir xxx 删除xxx文件夹
+exit 退出命令编辑器
+cd /  cd.  cd.. 进入根目录 进入当前目录 进入上一级目录
+
+43.SASS：
+变量：$xxx: yyy; 变量$xxx声明之后可以作用域内多处使用（感觉和js里变量差不多~，要全局使用在后面加 !global ,变量的值可以是数字，字符串，布尔值，列表，直接字符）
+父元素替代选择器：&; &符号在sass被提供用于代替父选择器
+导入子模块：@import： 把子模块导入到某个sass文件，再整体编译成一个css文件（子模块命名以 _ 开头）
+插值：#{}： 结合 #{} 插值语法和变量可输出特定的属性名和选择器
+混入：@mixin： 定义一个属性集，几个属性和值凑成的一个块，通过@include调用（其中参数问题等细节忘记了还得详看https://github.com/fe13/fe/blob/master/CSS/Sass/04.混入 Mixin.md）
+参数：$xxx 、$xxx:$yyy 、$xxx...;  变量做参数，变量默认值为另一个变量，可变不定参数
+@content： 我觉得最好还是把官网的例子拿下里看一下，方便理解和记忆（
+			$color: white;
+			@mixin colors($color: blue) {
+  			  background-color: $color;
+ 			  @content;
+  			  border-color: $color;
+			}
+			.colors {
+ 			   @include colors { color: $color; }
+			}
+		编译后：
+			.colors {
+  			  background-color: blue;
+ 			  color: white;
+ 			 c border-color: blue;
+			}
+）
+扩展：@extend; 完美实现@mixin和@include的大概功能，生成形如 A, B 的选择器，比如
+（.a{...} .b{@extend .a} .c{@extend .a} 生成.a,.b,.c{...}） 
+占位符选择器：%xxx; 感觉就是@extend功能里面的匿名块
+函数：@function ; @function用于定义函数，@return返回值
+控制指令：@if, @for, @each ; 什么乱七八糟的
+
+44.js快速类型转换：
+数字转字符串：123 + '';
+字符串转数字：+'abc';
+
+参数列表arguments
+
+函数function里面的return后面不能加换行
+
+let：
+let声明的变量最小可见作用域是块级作用域，如{}
+同一块级作用域下let不可重复声明变量
+临时死区。
+
+const：
+const声明常数变量，最小可见也是块级作用域
+
+window是浏览器的顶层对象,node.js的顶层对象是global
+
+语句只有在执行的时候才会开始动态解析变量值（这就是为什么for+var添加事件错误的原因）。
+
+getComputedStyle，getPropertyValue，style，currentstyle（该死的IE）
+
+getBoundingClientRect()：
+这个方法返回一个矩形对象，包含left、top等4个属性
+var box=document.getElementById('box');         // 获取元素
+alert(box.getBoundingClientRect().top);         // 元素上边距离页面上边的距离
+alert(box.getBoundingClientRect().right);       // 元素右边距离页面左边的距离
+alert(box.getBoundingClientRect().bottom);      // 元素下边距离页面上边的距离
+alert(box.getBoundingClientRect().left);        // 元素左边距离页面左边的距离
+
+对象：
+对象的‘=’关联是引用，不是复制（所以修改的话会直接影响到引用的对象）；用const声明的对象可以被修改；用delete可以删除对象的属性或方法；用in可以判断对象是否具有某个属性或方法（如：'xxx' in yyy）；
+当 == 或 === 作用于对象的时候，实际是在问：这两个变量引用的是用一个对象吗。
+
+原型：
+__proto__属性（如果自定义同样方法会覆盖原有原型属性方法，不推荐）和其原型链中构造函数的prototye属性指向一致,其中有很多原生方法，对象调用方法的时候会先在自身找方法，找不到再到_proto_里面找
+Object.prototype属性是对象的原型，即：xxx.__proto__ === Object.prototype
+var a = Object.create(b) 方法允许使用指定的b对象为原型创建一个新对象a（
+注意：通过该方法创建的ab关系为b是a的原型，如果通过new直接创建新对象a，比如a = new b();则
+b.prototype属性为a对象的原型）
+Object.prototype.hasOwnProperty() 方法用于判定某个指定的属性是否对象的自身(非继承)属性（
+如：a.hasOwnProperty(b) 判断b属性是否为a对象的自身属性）
+Object.getOwnPropertyNames(obj) 该方法返回一个由指定对象的所有自身属性的属性名组成的数组
+instanceof 该运算符用于判断对象原型链中是否有指定函数的prototype属性（
+如：a instanceof b 为真即 a.__proto__ === b.prototype）
+a.isPrototypeOf(b) 该方法用于判断a对象是否为b对象的原型（原型链中存在就算）
+Object.getPrototypeOf(a) 该方法用于返回a对象的原型
+Object.keys(a) 该方法获取a对象的所有属性名（自身属性，不包括继承属性）
+for···in  遍历指定对象的所有属性（包括一级继承来的属性）（
+如：for (var a in b)）
+constructor 该属性用于返回指定对象的构造器，即构造函数（
+如：var a = new b();则 a.constructor 返回 b）
