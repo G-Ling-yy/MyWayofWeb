@@ -21,6 +21,7 @@ git checkout xxx 切换xxx分支
 git merge xxx 合并xxx分支
 git branch -d xxx 删除本地xxx分支
 git push origin(远程库名) --delete xxx 删除远程xxx分支。
+ESC :q! Enter 依次键入退出Vim
 
 5.html转义字符：
 常用转义字符：空格→&nbsp; <→&lt; >→&gt; &→&amp; ©→&copy。
@@ -168,11 +169,12 @@ if前面的'--'要去掉）
 除了lt gt之外还有()子表达式，&和|和!的逻辑与或非
 
 
-38.(function(){})();待完成！！！~（它有自己独立的作用域）
+38.IIFE (function(){})()：
+Immediately-Invoked Function Expression，立即执行函数，有其独立的作用域。
 
 39.script async属性,defer属性
 
-40.`：
+40.反引号`：
 js字符串除了'和"还可以用反引号`包裹，用`包裹的字符串里面可以添加任意的'，"等符号，还可以直接保留换行，最牛B可以用${}内嵌表达式，比如`1+1=${1+1}`输出的字符串就是`1+1=2`。
 
 41.nodejs：
@@ -223,38 +225,65 @@ cd /  cd.  cd.. 进入根目录 进入当前目录 进入上一级目录
 44.js快速类型转换：
 数字转字符串：123 + '';
 字符串转数字：+'abc';
+其他转布尔： !!123   !!'abc';
 
-参数列表arguments
+45.参数列表arguments：
+arguments对象可以无需明确参数名即可访问，类似数组(不是数组)的访问方式（
+如：arguments[0]指第一个参数，arguments[1]指第二个）。
 
-函数function里面的return后面不能加换行
+46.return：
+return 后面要紧跟返回的结果，不能加换行。
 
-let：
-let声明的变量最小可见作用域是块级作用域，如{}
-同一块级作用域下let不可重复声明变量
-临时死区。
+47.let & const：
+let 和 const声明的变量最小可见作用域搜是块级作用域，如{}
+同一块级作用域下let不可重复声明变量，const用于声明常量，不可改。
+【小笔记： for(let i =1;i < a.length;i++){a[i]怎么怎么样}   由于let在for里的特殊性，
+其等价于  for(var i =1;i < a.length;i++){(function(k){a[k]怎么怎么样})(i)}
+类似特殊还有箭头函数
+let aaa = {
+  bbb(song, time) {
+    setTimeout(() => this.ccc(song), time * 1000);
+  }
+  ccc(){巴拉巴拉}
+}
+由于箭头函数的特殊性，其等价于
+let aaa = {
+  var it = this;
+  bbb(song, time) {
+    setTimeout(function() {
+      it.ccc(song);
+    }, time * 1000);
+  }
+  ccc(){巴拉巴拉}
+}
+我特么也不知道这些特殊性到底为什么
+现在知道了：普通function函数和箭头函数的行为有一个微妙的区别，箭头函数没有它自己的this值，箭头函数内的this值继承自外围作用域。箭头函数与非箭头函数间还有一个细微的区别，箭头函数不会获取它们自己的arguments对象
+】
 
-const：
-const声明常数变量，最小可见也是块级作用域
+48.临时死区：
+let 作用域内，不管let先声明与否，以let声明的变量为首选，如果let后声明，则会因首选该变量但其未赋值而报错 is not defined。
 
-window是浏览器的顶层对象,node.js的顶层对象是global
+49.顶层对象：
+window是浏览器的顶层对象,node.js的顶层对象是global。
 
-语句只有在执行的时候才会开始动态解析变量值（这就是为什么for+var添加事件错误的原因）。
+50.语句只有在执行的时候才会开始动态解析变量值（这就是为什么for+var添加事件错误的原因）。
 
-getComputedStyle，getPropertyValue，style，currentstyle（该死的IE）
+51.js获取css样式的方法：
+getComputedStyle，getPropertyValue，style(只操行内)，currentstyle（该死的IE）。
 
-getBoundingClientRect()：
-这个方法返回一个矩形对象，包含left、top等4个属性
+52.getBoundingClientRect()：
+这个方法返回一个矩形对象，包含left、top等4个属性（相对于viewport）
 var box=document.getElementById('box');         // 获取元素
 alert(box.getBoundingClientRect().top);         // 元素上边距离页面上边的距离
 alert(box.getBoundingClientRect().right);       // 元素右边距离页面左边的距离
 alert(box.getBoundingClientRect().bottom);      // 元素下边距离页面上边的距离
 alert(box.getBoundingClientRect().left);        // 元素左边距离页面左边的距离
 
-对象：
+53.对象：
 对象的‘=’关联是引用，不是复制（所以修改的话会直接影响到引用的对象）；用const声明的对象可以被修改；用delete可以删除对象的属性或方法；用in可以判断对象是否具有某个属性或方法（如：'xxx' in yyy）；
 当 == 或 === 作用于对象的时候，实际是在问：这两个变量引用的是用一个对象吗。
 
-原型：
+54.原型：
 __proto__属性（如果自定义同样方法会覆盖原有原型属性方法，不推荐）和其原型链中构造函数的prototye属性指向一致,其中有很多原生方法，对象调用方法的时候会先在自身找方法，找不到再到_proto_里面找
 Object.prototype属性是对象的原型，即：xxx.__proto__ === Object.prototype
 var a = Object.create(b) 方法允许使用指定的b对象为原型创建一个新对象a（
@@ -263,12 +292,41 @@ b.prototype属性为a对象的原型）
 Object.prototype.hasOwnProperty() 方法用于判定某个指定的属性是否对象的自身(非继承)属性（
 如：a.hasOwnProperty(b) 判断b属性是否为a对象的自身属性）
 Object.getOwnPropertyNames(obj) 该方法返回一个由指定对象的所有自身属性的属性名组成的数组
-instanceof 该运算符用于判断对象原型链中是否有指定函数的prototype属性（
-如：a instanceof b 为真即 a.__proto__ === b.prototype）
+instanceof 该运算符用于判断对象原型链中是否有指定函数的prototype属性，其实就是看前是否是后的实例（如：a instanceof b 为真即 a.__proto__ === b.prototype 也就是a = new b()来的）
 a.isPrototypeOf(b) 该方法用于判断a对象是否为b对象的原型（原型链中存在就算）
 Object.getPrototypeOf(a) 该方法用于返回a对象的原型
-Object.keys(a) 该方法获取a对象的所有属性名（自身属性，不包括继承属性）
-for···in  遍历指定对象的所有属性（包括一级继承来的属性）（
-如：for (var a in b)）
+Object.keys(a) 该方法返回a对象的所有属性名（自身属性，不包括继承属性）的数组
+for···in  遍历指定对象的所有属性（包括一级继承来的属性），只遍历对象，不用在数组（
+如：for (var a in b){} a指b对象的属性名）
+for ···of  遍历指定对象的属性值，可以遍历数组（
+如：for (var a of b）{} a指b对象或数组的属性值或元素值）
 constructor 该属性用于返回指定对象的构造器，即构造函数（
 如：var a = new b();则 a.constructor 返回 b）
+
+55.img元素src属性路径正确的话不能正确显示伪元素（我也是日了狗了）。
+
+56.箭头函数：
+ES6  （如：var square = x => x * x; square(3)输出结果9）。
+
+57.参数默认值：
+ES6   （如：function(a,b=a,c=1){}默认参数b的值等于a,参数c的值等于1）。
+
+58.forEach循环：
+arr.forEach(function(item,index,arr){});
+
+59.eval函数：
+eval(string)函数计算指定字符串并执行其中js代码。
+
+60.构造器Constructor：
+构造器即构造函数就是类，一般首字母大写（普通函数驼峰式），例如function Aaaa(){}，
+Aaaa.method = function(){} 就是静态方法，只能Aaaa类自己调用
+Aaaa.prototype.method2 = function(){} 就是实例方法，可以给实例化之后的例子用
+var aa = new Aaaa(); 就是实例化
+
+61.键盘事件的Esc键，要用keydown触发，keypress无效（特么的）。
+
+浏览器开发工具里选中元素后，$0可以获取当前选中元素
+
+getElementsByTagName()是动态获取集合，querySeletorAll()是静态获取。
+
+event.currentTarget

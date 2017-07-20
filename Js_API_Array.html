@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <title>Js_API_Array</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type=”image/x-icon”/>
+  <link rel="stylesheet" type="text/css" href="css/css.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="Js_API_Array.html" target="_blank">Js_API_Array</a></li>
+        <li><a href="Js_API_String.html" target="_blank">Js_API_String</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray" target="_blank">Array.isArray()：</a></h1>
+      <p><span class="syntax">Array.isArray(obj)</span> 判断obj对象是否为数组，返回布尔值。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank">Array.prototype.forEach()</a></h1>
+      <p><span class="syntax">arr.forEach(function(item,index,arr){},[thisArg])</span> 遍历arr数组操作，thisArg为可选参，以设置callback中的this值，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Array.prototype.push()</a></h1>
+      <p><span class="syntax">arr.push(elements)</span> 把一个或多个元素添加到arr数组的尾部，如果添加元素有数组则把整个数组作为一个元素添加。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop" target="_blank">Array.prototype.pop()</a></h1>
+      <p><span class="syntax">arr.pop()</span> 删除并返回arr数组的最后一个元素。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift" target="_blank">Array.prototype.unshift()</a></h1>
+      <p><span class="syntax">arr.unshift(elements)</span> 把元素添加到arr数组的头部，使用形同push()。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift" target="_blank">Array.prototype.shift()</a></h1>
+      <p><span class="syntax">arr.shift()</span> 删除并返回arr数组的第一个元素。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice" target="_blank">Array.prototype.splice()</a></h1>
+      <p><span class="syntax">arr.splice(index,length,[item1]···[itemn])</span> 修改原数组，删除index处length个元素，同时在该位置添加item系列元素如果有的话，item系列为可选参。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat" target="_blank">Array.prototype.concat()</a></h1>
+      <p><span class="syntax">arr.concat(elements)</span> 拼接数组，把一个或多个元素或数组依次拼接到arr数组后面，返回一个新数组，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse" target="_blank">Array.prototype.reverse()</a></h1>
+      <p><span class="syntax">arr.reverse()</span> 翻转数组，根据index下标颠倒数组，返回新数组，会改变原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank">Array.prototype.join()</a></h1>
+      <p><span class="syntax">arr.join(string)</span> 把数组中所有元素根据string参数值连接到一个字符串中，默认 ',' 隔开，string空字符串 '' 连接无间隔，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some" target="_blank">Array.prototype.some()</a></h1>
+      <p><span class="syntax">arr.some(function(item,index,arr){},[thisArg])</span> 判断arr数组是否有部分符合条件，只要有ture则true，返回布尔值，thisArg是可选参为指定functino中的this，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank">Array.prototype.every()</a></h1>
+      <p><span class="syntax">arr.every(function(item,index,arr){},[thisArg])</span> some()的全面升级版，全ture为true，否则false，返回布尔值，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">Array.prototype.sort()</a></h1>
+      <p><span class="syntax">arr.sort([function(a,b){return a-b}])</span> 数组排序函数，函参不写默认Unicode排序，函参写了按返回值大于小于0渐大或渐小排序，会改变原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank">Array.prototype.slice()</a></h1>
+      <p><span class="syntax">arr.slice([start,end])</span> 浅拷贝arr数组的指定部分，无参拷贝整个数组，无end拷贝到数组最后，有参拷贝start到end部分不包括end，返回新数组，不会修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+  </main>
+</body>
+</html>
