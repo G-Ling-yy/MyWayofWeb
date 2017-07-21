@@ -18,16 +18,204 @@
   </header>
   <main>
     <section>
-      <h1><a href="">Array.isArray()：</a></h1>
-      <p>sdfsdf</p>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank">String.prototype.trim()</a></h1>
+      <p><span class="syntax">str.trim()</span> 字符串首尾去空格处理，返回新字符串，不修改原字符串。</p>
     </section>
     <section>
-      <h1><a href="">Array.prototype.forEach()</a></h1>
-      <p>sdfsd</p>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft" target="_blank">String.prototype.trimLeft()</a></h1>
+      <p><span class="syntax">str.trimLeft()</span> 字符串头部去空格处理，用法形同楼上trim()。</p>
     </section>
     <section>
-      <h1><a href=""></a></h1>
-      <p></p>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charAt" target="_blank">String.prototype.charAt()</a></h1>
+      <p><span class="syntax">str.charAt(index)</span> 返回指定下标index处字符值，index超值返回空字符串 '' 。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank">String.prototype.charCodeAt()</a></h1>
+      <p><span class="syntax">str.charCodeAt(index)</span> 返回指定下标index处字符的Unicode编码（不就是ascii码表么）</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank">String.prototype.endsWith()</a></h1>
+      <p><span class="syntax">str.endWith(value,[end])</span> 判断str的end(不包括)下标处之前是否以value结尾,返回布尔值。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" target="_blank">String.prototype.startsWith()</a></h1>
+      <p><span class="syntax">str.startWith(value,[start])</span> 用法形同楼上endWith()，作用是判断开头,start默认0。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes" target="_blank">String.prototype.includes()</a></h1>
+      <p><span class="syntax">str.includes(value,[start])</span> 判断str是否包含有value在start指定位置往后，区分大小写，返回布尔值，start默认0</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" target="_blank">String.prototype.indexOf()</a></h1>
+      <p><span class="syntax">str.indexOf(value,[start])</span> 返回value在str中首次出现下标在start指定位置往后，没有则返回 -1 ，start默认0</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf" target="_blank">String.prototype.lastIndexOf()</a></h1>
+      <p><span class="syntax">str.lastIndexOf(value,[end])</span> 用法形同楼上indexOf()，从后向前找，没有则返回 -1 ，end默认arr.length，负值视为0，超值视为length。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/link" target="_blank">String.prototype.link()</a></h1>
+      <p><span class="syntax">str.link(url)</span> 生成&lt;a&gt;链接，url是href值。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match" target="_blank">String.prototype.match()</a></h1>
+      <p><span class="syntax">str.match(string|regexp)</span> 根据字符串string参值或正则regexp参值匹配str首个符合要求字符串并返回对应值数组，正则regexp参里若有g参则返回所有匹配值数组，无参返回空数组，无匹配返回null。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search" target="_blank">String.prototype.search()</a></h1>
+      <p><span class="syntax">str.search(string|regexp)</span> 作用用法形同楼上match()，只是返回首次索引值，没有则返回 -1 。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/repeat" target="_blank">String.prototype.repeat()</a></h1>
+      <p><span class="syntax">str.repeat(count)</span> 字符串复写count次，返回新字符串，不修改原字符串。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank">String.prototype.replace()</a></h1>
+      <p><span class="syntax">arr.replace(string|regexp,newString|function)</span> 替换字符串，根据string参值或regexp参值获取首个符合条件元素，用newString或function返回值替换掉（替换字符串中"$"特殊），regexp中有g参则全部替换，返回新字符串，不修改原字符串。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/slice" target="_blank">String.prototype.slice()</a></h1>
+      <p><span class="syntax">str.slice([start,end])</span> 复制str数组指定部分并返回新字符串，不包括end，默认0到length，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank">String.prototype.split()</a></h1>
+      <p><span class="syntax">str.split(separator,[maxlength])</span> 把str字符串根据separator参值分割成长度不超过maxlength的数组，返回新数组，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substr" target="_blank">String.prototype.substr()</a></h1>
+      <p><span class="syntax">str.substr([start,length])</span> 作用用法形同slice()，唯第二个参为长度耳，不改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/substring" target="_blank">String.prototype.substring()</a></h1>
+      <p><span class="syntax">str.substring([start,end])</span> 作用用法和slice()基本无异，唯参数灵活性更大些。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" target="_blank">String.prototype.toLowerCase()</a></h1>
+      <p><span class="syntax">str.toLowerCase()</span> str全部小写，返回新字符串，不修改原数组。</p>
+    </section>
+    <section>
+      <h1><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target="_blank">String.prototype.toUpperCase()</a></h1>
+      <p><span class="syntax">str.toUpperCase()</span> str全大写，形上。</p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
+    </section>
+    <section>
+      <h1><a href="" target="_blank"></a></h1>
+      <p><span class="syntax"></span></p>
     </section>
   </main>
 </body>
