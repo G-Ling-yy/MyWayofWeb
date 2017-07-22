@@ -292,7 +292,7 @@ b.prototype属性为a对象的原型）
 Object.prototype.hasOwnProperty() 方法用于判定某个指定的属性是否对象的自身(非继承)属性（
 如：a.hasOwnProperty(b) 判断b属性是否为a对象的自身属性）
 Object.getOwnPropertyNames(obj) 该方法返回一个由指定对象的所有自身属性的属性名组成的数组
-instanceof 该运算符用于判断对象原型链中是否有指定函数的prototype属性，其实就是看前是否是后的实例（如：a instanceof b 为真即 a.__proto__ === b.prototype 也就是a = new b()来的）
+instanceof 该运算符用于判断对象原型链中是否有指定函数的prototype属性，其实就是看前是否是后的实例对象（如：a instanceof b 为真即 a.__proto__ === b.prototype 也就是a = new b()来的）
 a.isPrototypeOf(b) 该方法用于判断a对象是否为b对象的原型（原型链中存在就算）
 Object.getPrototypeOf(a) 该方法用于返回a对象的原型
 Object.keys(a) 该方法返回a对象的所有属性名（自身属性，不包括继承属性）的数组
@@ -330,3 +330,7 @@ var aa = new Aaaa(); 就是实例化
 getElementsByTagName()是动态获取集合，querySeletorAll()是静态获取。
 
 event.currentTarget
+
+JS_this：
+this在全局或非严格模式的直接调用函数里的值是window;
+this在严格模式的直接调用函数里的值是undefined;

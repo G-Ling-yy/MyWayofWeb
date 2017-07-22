@@ -86,10 +86,15 @@ span.syntax {
 @media screen and (max-width: 320px) {
   ul.header-nav {
     flex-flow: wrap;
+    height: calc(5.4rem * .45);
+    overflow: hidden;
+  }
+  ul.header-nav:hover {
+    height: auto;
   }
   ul.header-nav li {
     flex: 1 100%;
-    height: 50%;
+    height: calc(5.4rem * .45);
   }
   ul.header-nav li a {
     line-height: calc(5.4rem * .45);
