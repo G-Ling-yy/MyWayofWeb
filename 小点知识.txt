@@ -334,3 +334,5 @@ event.currentTarget
 JS_this：
 this在全局或非严格模式的直接调用函数里的值是window;
 this在严格模式的直接调用函数里的值是undefined;
+
+leetcode.com
