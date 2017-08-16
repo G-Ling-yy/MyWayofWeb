@@ -1,5 +1,5 @@
 ﻿1.var a = 1：
-在函数中等价于在函数开头var a ;再在该语句处赋值a = 1;（var b = function(){}的b同理,叫函数表达式，类似于function b()叫函数声明，函数声明会被提升(Hoist)到所处作用域的顶端）。
+在函数中等价于在函数开头var a ;再在该语句处赋值a = 1;（形如var b = function(){}的叫函数表达式，类似于function b()叫函数声明，函数声明会被提升(Hoist)到所处作用域的顶端）。
 
 2.git库同步后网页形式打开index.html：
 要么远程库命名github.io结尾，要么用分支“gh-pages”提交（可能要么就用TortoiseGit）。
@@ -90,7 +90,7 @@ small-caps属性值可以让字母变小型的大写。
 
 19.text-overflow：
 容器固定宽度之后，该属性的clip（修剪）值将剪掉超出文本部分，该属性的ellipsis（省略）值
-将以省略号···形式表示多余文本。
+将以省略号···形式表示多余文本（该效果需要容器是块元素且要加overflow:hidden）。
 
 20.white-space：
 文本换行属性，normal,pre,nowrap,pre-wrap,pre-line等值。
@@ -129,7 +129,8 @@ transform: translateZ()，垂直元素面方向位移，和perspective配合使�
 不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置，fixed 属性会创建新的层叠上下文。当元素祖先的 transform  属性非 none 时，容器由视口改为该祖先。
 
 28.js对一些浏览器或文档宽高数据的获取：
-document.documentElement.clientHeight 获取设备像素可见宽高，即viewport宽高(innerHeight)
+innerHeight 获取viewport宽高（小于等于浏览器总宽高）
+document.documentElement.clientHeight 获取文档可见宽高（去掉滚动条）
 window.screen.availHeight 获取屏幕像素可见宽高（去掉任务栏）,即浏览器总宽高
 document.documentElement.scrollHeight 获取html的整体宽高
 document.body.scrollTop 获取滚动条滚动高度，即距当前页面离顶部高度。 
@@ -323,16 +324,92 @@ Aaaa.method = function(){} 就是静态方法，只能Aaaa类自己调用
 Aaaa.prototype.method2 = function(){} 就是实例方法，可以给实例化之后的例子用
 var aa = new Aaaa(); 就是实例化
 
-61.键盘事件的Esc键，要用keydown触发，keypress无效（特么的）。
+61.键盘事件的Esc键，要用keydown或keyup触发，keypress无效（特么的）。
 
-浏览器开发工具里选中元素后，$0可以获取当前选中元素
+62.浏览器开发工具里选中元素后，$0可以获取当前选中元素。
 
-getElementsByTagName()是动态获取集合，querySeletorAll()是静态获取。
+63.getElementsByTagName()是动态获取集合，querySeletorAll()是静态获取。
 
-event.currentTarget
-
-JS_this：
+64.JS_this：
 this在全局或非严格模式的直接调用函数里的值是window;
 this在严格模式的直接调用函数里的值是undefined;
 
-leetcode.com
+65.obj.handleEvent(event)：
+有了handleEvent(event)方法的obj对象可以作为addEventListener()的第二个参数即事件监听器，
+handleEvent(event)中的this指向obj。 
+
+66.event：
+event.button  0，1，2分别代表鼠标左中右键
+event.type   mousedown mouseup click keyup keydown keypress scroll等那些 
+event.clientX(Y)   鼠标当前坐标（相对于viewport）
+event.screenX(Y)   鼠标当前坐标（相对于浏览器）
+event.pageX(Y)   鼠标当前坐标（相对于document文档）
+event.offsetX(Y)   鼠标当前坐标（相对于当前元素）
+event.key     键盘按键的名称
+event.keyCode    键盘按键的unicode
+event.target    触发元素
+event.currentTarget    监听元素
+event.preventDefault()   阻止浏览器默认行为，比如a链接，提交按钮等
+（自定义事件：使用 CustomEvent 构造自定义事件，并可通过 detail 属性传递自定义数据。）
+   
+
+67.DOMContentLoaded事件：
+DOM树构建完成事件，该事件在 document 上触发，因此要在 document 上监听此事件。
+
+68.JSON：
+JSON全称 JavaScript Object Notation(标记法)，将结构化数据表现为Js对象的数据交换格式
+JSON是一种数据交换格式，所以属性名必须双引号标记且其对象中不能包含方法，禁止尾随逗号
+json.parse()     把json字符串解析成js对象
+json.stringify()      把js对象封装成json字符串用以存储或发送
+
+69.Element.matches() 判断element是否匹配给定的选择器，比如元素a有类aaa的话，则
+a.matches('.aaa') === true，所以event.target.matches()可用来匹配事件触发元素。
+
+70.图片懒加载：
+当图片好多的时候，把真实地址保存在比如data-src里，src里统一虚拟地址，在js里需要加载的时候才去用真实地址来显示出来。
+
+71.js中dom自动获取焦点方法即eleMent.focus()，失去焦点就blur()，click()还可以模拟点击。
+
+72.setTimeout()和setInterval()：
+setTimeout()可以传参（IE9+），参数加在时间后面（如：setTimeout(AA,2000,arg1,arg2)）
+setTimeout(func,0)时间为0的setTimeout是尽快执行函数，不是立即执行函数，是空闲立即执行函数（其中的时间0可以省略）
+setInterval(func,1000)  会延时1s再每秒循环执行函数func
+setInterval(func(),1000)  会立即执行函数func且只执行一次
+setInterval(func(),1000)且func(){return func}  即函数func里return了自己，会立即执行函数func一次并再每秒循环执行函数func
+setTimeout()和setInterval()的第一个参尽量用函数func，不用字符串code
+
+73.AJAX：
+XMLHttpRequest  Ajax的核心对象，用于发送http请求
+xhr.onreadystatechange(){if(xhr.readyState===4&&xhr.status===200)···}
+xhr.open('get',URL);xhr.send();   Ajax的get原理性写法
+xhr.open('post',URL);xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');xhr.send(data);   Ajax的post原理性写法
+jQuery中，用封装好的$.getJSON()来请求获取JSON数据（
+如：$.getJSON(URL,function(res){···});）
+$.ajax()  jq的ajax通用方法，常用于其他方法不能完成的请求，语法$.ajax({name:value, name:value, ... })
+用$.ajax()来请求GET数据：  $.ajax({url:'xxx',method:'get',success:function(res){...}});
+用$.ajax()来请求POST数据： $.ajax(url:'xxx',method:'post',data:情况而定,success:function(){...});
+用$.ajax()来请求PUT数据：  $.ajax(url:'xxx',method:'put',同上);
+用$.ajax()来请求DELETE数据：  $.ajax(url:'xxx',method:'delete',同上);
+encodeURIComponent(string)  编码函数，把字符串string作为URI组件进行编码
+encodeURI(string)           编码函数，把字符串string作为URI进行编码
+区别——encodeURIComponent一般处理URI的一部分···（跟特么没说一样），对保留字符也做编码处理，encodeURI有保留字符
+decodeURIComponent()和decodeURII()为解码函数
+jQuery的.data()方法，向元素附加或获取临时数据，data(name,value),data(name)（
+如：$('div').data('a','bb')，再$('div').data('a')得到'bb'）
+<<<const OCTOCATS = JSON.parse(fs.readFileSync('./octocats.json').toString());...res.send(OCTOCATS)...>>>
+
+74.jQuery：
+.prev() 前一个元素  .next() 
+.parent() 父元素  .children()
+.closest('xxx')  最近的符合条件的祖先元素
+.append()  在元素末尾追加内容   .prepend()
+.after()  在元素后面追加内容   .before()
+.eq(number) 第几个选择器，从0开始   
+.remove()  删除元素
+.addClass()  .removeClass()  .toggleClass()
+jQ的事件委托： $(父元素).on('click','指定子元素',function(){...});
+jQ的动画：  $().animate({属性：‘属性值’,属性：‘属性值’},{duration:timeNumber});
+
+75.Promise：
+let pro = new Promis();
+
