@@ -133,7 +133,7 @@ innerHeight 获取viewport宽高（小于等于浏览器总宽高）
 document.documentElement.clientHeight 获取文档可见宽高（去掉滚动条）
 window.screen.availHeight 获取屏幕像素可见宽高（去掉任务栏）,即浏览器总宽高
 document.documentElement.scrollHeight 获取html的整体宽高
-document.body.scrollTop 获取滚动条滚动高度，即距当前页面离顶部高度。 
+document.body.scrollTop || document.documentElement.scrollTop 获取滚动条滚动高度，即距当前页面离顶部高度。 
 
 29.transition中的scale()填负数：
 会发生很好玩的效果，相反放大，元素完全x,y翻转显示。
@@ -359,8 +359,8 @@ DOM树构建完成事件，该事件在 document 上触发，因此要在 docume
 68.JSON：
 JSON全称 JavaScript Object Notation(标记法)，将结构化数据表现为Js对象的数据交换格式
 JSON是一种数据交换格式，所以属性名必须双引号标记且其对象中不能包含方法，禁止尾随逗号
-json.parse()     把json字符串解析成js对象
-json.stringify()      把js对象封装成json字符串用以存储或发送
+JSON.parse( json_str )     把json字符串解析成js对象
+JSON.stringify( json_obj )      把js对象封装成json字符串用以存储或发送
 
 69.Element.matches() 判断element是否匹配给定的选择器，比如元素a有类aaa的话，则
 a.matches('.aaa') === true，所以event.target.matches()可用来匹配事件触发元素。
@@ -411,5 +411,103 @@ jQ的事件委托： $(父元素).on('click','指定子元素',function(){...});
 jQ的动画：  $().animate({属性：‘属性值’,属性：‘属性值’},{duration:timeNumber});
 
 75.Promise：
-let pro = new Promis();
+  let pro = new Promis(function(resolve,reject){});
+  状态：pending未执行的未知状态； resolved已兑现的状态；  rejected已拒绝的状态(通常用 Error 表示拒绝原因);
+  Promise.prototype.then(onFulfilled, onRejected)方法   添加肯定和否定回调到当前 promise, 返回一个新的 promise, 将以回调的返回值 来resolve，该方法返回的依然是Promise对象（如：
+肯定时  .then(function(v){})  用于获取Promise对象的值PromiseValue
+否定时  .then(null,function(v){})  这样的.then()方法等同于.catch()方法）;
+  常见response.json()，这里的json()方法使用一个 Response 流，并将其读取完成。它返回一个 promise ，解析结果是将文本体解析为 JSON
+  Fetch()   Ajax+Promise的综合体  常见fetch(url).then(res=>res.json()).then(v=>return v)  因为fetch()返回一个promise对象，第一次解析得到的res是Response对象，所以通过.json()解析为JSON，然后才再使用
+  $.ajax().then()
+  Promise.all([promise,promise])  []中所有promise都resolved才会resolved；
+  Promise.race([promise,promise])  写法形同.all()，然.race()返回最快的那个resolve或reject结果;
+  async  异步的  使其后函数返回promise对象   async function bb(){};
+  await  用于等待一个promise对象被resolved之后返回其值;
+  $.ajax() 返回一个 thenable 对象(就是有 then() 方法的对象)，可以被当成一个 Promise。
+
+76.去抖小技巧debounce & throttle节流：
+去抖  -----------  通过setTimeout()赋值给一个全局变量在一个事件里clearTimeout(该全局变量)后执行setTimeout()里面的函数来达到去抖（如：
+let T;xxx.addEventListener('click',function(){clearTimeout(T);T=setTimeout(function(){···执行函数···},1000*n)})）
+节流  -----------  通过规定事件执行最小间隔以达到减少执行频率的效果（如：
+function throttle (func, time) {
+    let prev, timer
+
+    return function fn() {
+      const curr = new Date()
+      const pass = curr - prev
+
+      if (!prev || pass >= time) {
+        func()
+        prev = curr
+      }else {
+        clearTimeout(timer)
+        timer = setTimeout(fn, time - pass)
+      }
+    }
+  }
+}）
+
+77.try···catch(e)···：
+try {//执行函数语句//} catch(e){//抛出e.message//}
+
+78.新语法赋值小技巧：[a,b,c,d] = array;可以等同 a = array[0], b = array[1]的效果，超出array数组部分的变量x,y等为undefined,{a,b,c,d} = object同上,即a = object.a, b = object.b，object没有c,d属性则为undefined。
+
+79.跨域：
+
+
+
+insertAdjacentHTML()
+
+pageYOffset
+
+arrayAA.push(...arrayBB) es6语法 把arrayBB数组的元素依次push到arrayAA里
+
+hash  hashchange事件
+
+总结一下audio：
+  <audio src="" autoplay controls loop muted(静音) preload(预加载)> 浏览器不支持 </audio>
+  对象属性  currentTime currentSrc duration paused(暂停与否,true/false)
+  对象方法  play() pause() load()
+  对象事件  'canplaythrough'(资源加载完成)  'canplay'(资源已加载部分)
+
+Object.assign
+
+charles
+
+数组去重小技巧： es6 Set()
+
+dispatchEvent()：
+自动触发某事件，接收event对象作为参数  ------  ele.dispatchEvent(new Event('click'))
+
+css小技巧之元素同比例缩放：
+父元素的before设置content:'';display:block;margin-top:X%;父元素设置relative并overflow:hidden;指定子元素设置absolute并撑起所需父元素部分。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
