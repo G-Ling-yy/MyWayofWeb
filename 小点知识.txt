@@ -482,6 +482,8 @@ dispatchEvent()：
 css小技巧之元素同比例缩放：
 父元素的before设置content:'';display:block;margin-top:X%;父元素设置relative并overflow:hidden;指定子元素设置absolute并撑起所需父元素部分。
 
+无滚动条的滚动效果：
+element::-webkit-scrollbar {display:none}
 
 
 
