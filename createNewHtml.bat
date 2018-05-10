@@ -22,7 +22,8 @@ cd..
 >>index.html echo   ^<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css"^>
 >>index.html echo ^<^/head^>
 >>index.html echo ^<body^>
->>index.html echo   ^<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"^>^<^/script^>
+>>index.html echo   ^<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"^>^<^/script^>
+>>index.html echo   ^<script src="js/js.js"^>^<^/script^>
 >>index.html echo ^<^/body^>
 >>index.html echo ^<^/html^>
 cd css
