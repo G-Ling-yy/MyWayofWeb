@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <title>browsersync</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <p id="result"></p>
+  <script>
+    const a = [1, 2, 7, 4, 5, 6 ,6 ,3]
+    
+    function getNum (arry, num) {
+      arry.sort((a, b) => a - b)
+      let newarry = []
+      new Set(arry).forEach(e => e <= num ? newarry.push(e) : '')
+      if (!newarry.length) return console.log('最小都比指定值大，没有!')
+      if (Sum(newarry) < num) return console.log('总和都不够，没有!')
+      let result = []
+      let initial = [newarry[0]]
+      let i = 0
+      recursion(initial)
+      result.forEach(e => document.querySelector('#result').innerText+=` [${e}] `)
+      document.querySelector('#result').innerHTML += `<br>`
+
+      function recursion (arr) {
+        if (Sum(arr) < num) {
+          i++
+          arr.push(newarry[i])
+          return recursion(arr)
+        }else if (Sum(arr) > num) {
+          arr.splice(arr.length-2, 2, newarry[i])
+          return recursion(arr)
+        }else if (Sum(arr) === num) {
+          let yes = arr.slice(0)
+          result.push(yes)
+          if (i < newarry.length - 1) {
+            i = newarry.findIndex(e => e === arr[arr.length-2])+1
+            arr.splice(arr.length-2, 2, newarry[newarry.findIndex(e => e === arr[arr.length - 2])+1])
+            return recursion(arr)
+          }else {
+            i = newarry.findIndex(e => e === arr[0])+1
+            arr = [newarry[newarry.findIndex(e => e === arr[0])+1]]
+            return recursion(arr)
+          }
+        }
+      }
+
+      function Sum (arr) {
+        return arr.reduce((a, e) => a += e)
+      }
+    }
+    getNum(a, 9)
+    getNum(a, 8)
+    getNum(a, 7)
+    getNum(a, 6)
+    getNum(a, 5)
+    getNum(a, 4)
+    getNum(a, 3)
+    getNum(a, 2)
+    getNum(a, 1)
+    getNum(a, 0)
+  </script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
