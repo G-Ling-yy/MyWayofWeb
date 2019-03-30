@@ -485,6 +485,14 @@ css小技巧之元素同比例缩放：
 无滚动条的滚动效果：
 element::-webkit-scrollbar {display:none}
 
+微信小程序遮罩层阻止底层页面滚动：
+catchtouchmove给个空方法 -------------- <view class="我是遮罩层" catchtouchmove="doNothing"></view> doNoting(){}
+遮罩层很普通时可以用上述简单方法，若遮罩层有scroll-view标签时会出现上述无效且很难搞的bug，在微信小程序还没有提供对page修改css的API出现之前，可以在最外层的view设置类似page的样式，所有标签写在最外层view里面的view里面，然后通过{{}}控制最外层view的overflow-y:hidden来控制滚动，简单粗暴
+
+微信小程序单独修改元素样式属性：
+除了大量修改属性用到的动态class，单独样式修改可以预先在元素中和动态class一样通过{{}}设置具体样式 --------------------
+-----------<view class="class1 {{是否 ? 'class2' : 'class3'}}"></view>
+
 
 
 
