@@ -50,7 +50,7 @@
 	<findFormSender @btnclick.user="onTapFind">
 		<view slot="content" class="xui-item">
 			<image class="xui-image" src="../images/{{current == 'find' ? 'find_active.png' : 'find.png'}}">
-			<view>发现</view>
+			<view>首页</view>
 		</view>
 	</findFormSender>
 
@@ -66,7 +66,7 @@
 
 	<pubFormSender @btnclick.user="onTapPaoPao">
 		<view slot="content" class="xui-item">
-			<image class="xui-image-pub" src="../images/{{current == 'paopao' ? 'paopao_active.png' : 'paopao.png'}}">
+			<image class="xui-image-pub" src="../images/{{current == 'paopao' ? 'paopao.png' : 'paopao.png'}}">
 		</view>
 	</pubFormSender>
 
@@ -74,7 +74,7 @@
 	<msgFormSender @btnclick.user="onTapMsg">
 		<view slot="content" class="xui-item">
 			<image class="xui-image" src="../images/{{current == 'challenge' ? 'challenge_active.png' : 'challenge.png'}}">
-			<view>挑战</view>
+			<view>发现</view>
 			<!-- <view wx:if="{{hasNewNotify}}" class="x-i-badge"></view> -->
 		</view>
 	</msgFormSender>
@@ -162,7 +162,7 @@ export default class BottomNavi extends wepy.component {
 		} else if (tabName == 'star') {
 			togo = 'group/bars';
 			event = "浏览'圈子'页面";
-		} else if (tabName == 'challenge33333333333333333333') {
+		} else if (tabName == 'challenge') {
 			togo = 'challenge/challenge';
 			event = "浏览'消息'页面";
 		} else if (tabName == 'me'){

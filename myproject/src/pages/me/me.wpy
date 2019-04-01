@@ -2,15 +2,16 @@
 @import "../../base";
 
 page {
-	background-color: #000;
+	background-color: #fff;
 	.me-container {
 		position: relative;
 		margin-bottom: 108rpx;
 		.xui-person {
+			color: #000;
 			position: relative;
 			width: 100%;
 			height: 274rpx;
-			background: #000;
+			background: #fff;
 			text-align: center;
 
 			.xui-i-avatar {
@@ -35,13 +36,13 @@ page {
 
 			.xui-i-name {
 				font-size: 34rpx;
-				color: #f8bf36;
+				color: #000;
 				font-family: "微软雅黑";
 			}
 
 			.xui-i-code {
 				font-size: 20rpx;
-				color: #fff;
+				color: #000;
 				margin-top: 5rpx;
 			}
 
@@ -49,11 +50,11 @@ page {
 				display: flex;
 				justify-content: center;
 				margin: 20rpx 0 30rpx;
-				color: #eee;
+				color: #000;
 				font-size: 16rpx;
 				line-height: 18rpx;
 			    view {
-					color: #eee;
+					color: #000;
 					font-size: 22rpx;
 					padding: 0 18rpx;
 				}
@@ -286,7 +287,7 @@ page {
 		<view class="xui-person">
 			<view class="xui-i-avatar">
 				<view>
-					<image mode="aspectFill" src="{{userInfo.avatar?userInfo.avatar:'http://resource.vxiaocheng.com/mercury/default_avatar.png'}}"/>
+					<image mode="aspectFill" src="{{userInfo.avatar?userInfo.avatar:'https://raw.githubusercontent.com/AlbertGandolf/AlbertGandolf/master/hobby/anime.jpg'}}"/>
 				</view>
 			</view>
 			<view class="xui-i-name">{{userInfo.name}}</view>
@@ -407,18 +408,18 @@ page {
 <script>
 	import wepy from 'wepy'
 	const app = getApp()
-	import _ from '../../lib/mptool'
-	import Session from '../../lib/session'
-	import UserService from '../../services/user_service'
-	import AccountService from '../../services/account_service'
-	import StorageService from '../../services/storage_service'
-	import IMoneyService from '../../services/imoney_service'
-	import FinanceService from '../../services/finance_service'
-	import LocationService from '../../services/location_service'
-	import WebIMService from '../../services/webim_service'
-	import DateService from '../../services/date_service'
-	import Resource from '../../lib/resource'
-	import Uploader from '../../lib/uploader'
+	// import _ from '../../lib/mptool'
+	// import Session from '../../lib/session'
+	// import UserService from '../../services/user_service'
+	// import AccountService from '../../services/account_service'
+	// import StorageService from '../../services/storage_service'
+	// import IMoneyService from '../../services/imoney_service'
+	// import FinanceService from '../../services/finance_service'
+	// import LocationService from '../../services/location_service'
+	// import WebIMService from '../../services/webim_service'
+	// import DateService from '../../services/date_service'
+	// import Resource from '../../lib/resource'
+	// import Uploader from '../../lib/uploader'
 	import BottomNavi from '../../components/bottom_navi'
 
 	export default class Me extends wepy.page {
@@ -475,296 +476,296 @@ page {
 		computed = {
 		}
 
-		methods = {
-			onPressShowManager() {
-				wx.showModal({
-					title: '版本号',
-					content: this.$parent.globalData.version,
-					showCancel: false
-				})
-			},
+		// methods = {
+		// 	onPressShowManager() {
+		// 		wx.showModal({
+		// 			title: '版本号',
+		// 			content: this.$parent.globalData.version,
+		// 			showCancel: false
+		// 		})
+		// 	},
 
-			onTapEnterFollowees() {
-				wx.navigateTo({
-					url: '/pages/users/followees',
-				})
-			},
+		// 	onTapEnterFollowees() {
+		// 		wx.navigateTo({
+		// 			url: '/pages/users/followees',
+		// 		})
+		// 	},
 
-			onTapEnterFollowers() {
-				wx.navigateTo({
-					url: '/pages/users/followers',
-				})
-			},
+		// 	onTapEnterFollowers() {
+		// 		wx.navigateTo({
+		// 			url: '/pages/users/followers',
+		// 		})
+		// 	},
 
-			onTapEnter(name) {
-				if (name == "card") {
-					console.log("doing..........");
-					return;
-				}
-				wx.navigateTo({
-					url: '/pages/' + name + '/' + name,
-				})
-			},
+		// 	onTapEnter(name) {
+		// 		if (name == "card") {
+		// 			console.log("doing..........");
+		// 			return;
+		// 		}
+		// 		wx.navigateTo({
+		// 			url: '/pages/' + name + '/' + name,
+		// 		})
+		// 	},
 
-			onTapEnterSupport() {
-				wx.navigateTo({
-					url: '/package/pages/support/support',
-				});
-			},
+		// 	onTapEnterSupport() {
+		// 		wx.navigateTo({
+		// 			url: '/package/pages/support/support',
+		// 		});
+		// 	},
 
-			onTapEnterMyNotifications() {
-				wx.navigateTo({
-					url: '/package/pages/notification/notification',
-				})
-				app.aldstat.sendEvent("查看我的消息", {
-					"用户ID": this.userInfo.id + "",
-					"时间": _.getAldTime()
-				})
-			},
+		// 	onTapEnterMyNotifications() {
+		// 		wx.navigateTo({
+		// 			url: '/package/pages/notification/notification',
+		// 		})
+		// 		app.aldstat.sendEvent("查看我的消息", {
+		// 			"用户ID": this.userInfo.id + "",
+		// 			"时间": _.getAldTime()
+		// 		})
+		// 	},
 
-			onTapEnterMyRewardBlogs() {
-				wx.navigateTo({
-					url: '/pages/my_blogs/my_reward_blogs',
-				})
-			},
+		// 	onTapEnterMyRewardBlogs() {
+		// 		wx.navigateTo({
+		// 			url: '/pages/my_blogs/my_reward_blogs',
+		// 		})
+		// 	},
 			
-			onTapEnterMyBroadcastBlogs() {
-				wx.navigateTo({
-					url: '/pages/my_blogs/my_broadcast_blogs',
-				})
-			},
+		// 	onTapEnterMyBroadcastBlogs() {
+		// 		wx.navigateTo({
+		// 			url: '/pages/my_blogs/my_broadcast_blogs',
+		// 		})
+		// 	},
 
-			onTapEnterMySummons() {
-				wx.navigateTo({
-					url: '/package/pages/mine/my_summons',
-				})
-			},
+		// 	onTapEnterMySummons() {
+		// 		wx.navigateTo({
+		// 			url: '/package/pages/mine/my_summons',
+		// 		})
+		// 	},
 
-			onTapEnterFootprint() {
-				wx.navigateTo({
-					url: 'history_footprint',
-				})
-			},
+		// 	onTapEnterFootprint() {
+		// 		wx.navigateTo({
+		// 			url: 'history_footprint',
+		// 		})
+		// 	},
 
-			onTapEnterUser() {
-				wx.navigateTo({
-					url: '/pages/paoypao/paoypao_friend?id=' + this.userInfo.id
-				})
-			},
+		// 	onTapEnterUser() {
+		// 		wx.navigateTo({
+		// 			url: '/pages/paoypao/paoypao_friend?id=' + this.userInfo.id
+		// 		})
+		// 	},
 
-			onTapEnterUsers(type) {
-				wx.navigateTo({
-					url: '/pages/users/users?type=' + type,
-				})
-			},
+		// 	onTapEnterUsers(type) {
+		// 		wx.navigateTo({
+		// 			url: '/pages/users/users?type=' + type,
+		// 		})
+		// 	},
 
-			onClickJWT: function(e) {
-				Session.clear();
-				wx.redirectTo({
-					url: '/pages/login/login'
-				})
-				console.log(Session.get());
-			},
+		// 	onClickJWT: function(e) {
+		// 		Session.clear();
+		// 		wx.redirectTo({
+		// 			url: '/pages/login/login'
+		// 		})
+		// 		console.log(Session.get());
+		// 	},
 
-			onTapClearCache() {
-				Session.clear();
-				wx.redirectTo({
-					url: '/pages/login/login'
-				});
-			},
+		// 	onTapClearCache() {
+		// 		Session.clear();
+		// 		wx.redirectTo({
+		// 			url: '/pages/login/login'
+		// 		});
+		// 	},
 
-			onTapBindLevel: function(e) {
-				let itemList = this.levels.map(level => level.name);
-				let _this = this;
-				wx.showActionSheet({
-					itemList: itemList,
-					success: function(res) {
-						let level = _this.levels[res.tapIndex];
-						ArtistService.updateArtistLevel(level.id).then(data => {
-							wx.showToast({
-								title: '绑定等级成功',
-								icon: 'none',
-								duration: 1500
-							});
-							_this.level = level;
-							_this.$apply();
-						})
-					},
-					fail: function(res) {
-						console.log(res.errMsg)
-					}
-				})
-			},
+		// 	onTapBindLevel: function(e) {
+		// 		let itemList = this.levels.map(level => level.name);
+		// 		let _this = this;
+		// 		wx.showActionSheet({
+		// 			itemList: itemList,
+		// 			success: function(res) {
+		// 				let level = _this.levels[res.tapIndex];
+		// 				ArtistService.updateArtistLevel(level.id).then(data => {
+		// 					wx.showToast({
+		// 						title: '绑定等级成功',
+		// 						icon: 'none',
+		// 						duration: 1500
+		// 					});
+		// 					_this.level = level;
+		// 					_this.$apply();
+		// 				})
+		// 			},
+		// 			fail: function(res) {
+		// 				console.log(res.errMsg)
+		// 			}
+		// 		})
+		// 	},
 			
-			onTapMockLogin: function() {
-				wx.navigateTo({
-					url: "/pages/users/users?type=mocklogin"
-				})
-			},
+		// 	onTapMockLogin: function() {
+		// 		wx.navigateTo({
+		// 			url: "/pages/users/users?type=mocklogin"
+		// 		})
+		// 	},
 
-			onLongPressManager: function() {
-				wx.navigateTo({
-					url: "/pages/users/users?type=manager"
-				})
-			},
+		// 	onLongPressManager: function() {
+		// 		wx.navigateTo({
+		// 			url: "/pages/users/users?type=manager"
+		// 		})
+		// 	},
 
-			onTapVisitBar: function() {
-				wx.navigateTo({
-					url: "/package/pages/bars/bars"
-				})
-			},
+		// 	onTapVisitBar: function() {
+		// 		wx.navigateTo({
+		// 			url: "/package/pages/bars/bars"
+		// 		})
+		// 	},
 
-			onTapGenerateDevUsers: function() {
-				AccountService.generateDevUsers().then(isSuccess => {
-					if (isSuccess) {
-						wx.showToast({
-							title: '创建成功',
-							icon: 'success',
-							duration: 2000
-						})
-					} else {
-						wx.showToast({
-							title: '创建测试用户失败！！！',
-							icon: 'none',
-							duration: 2000
-						})
-					}
-				})
-			},
+		// 	onTapGenerateDevUsers: function() {
+		// 		AccountService.generateDevUsers().then(isSuccess => {
+		// 			if (isSuccess) {
+		// 				wx.showToast({
+		// 					title: '创建成功',
+		// 					icon: 'success',
+		// 					duration: 2000
+		// 				})
+		// 			} else {
+		// 				wx.showToast({
+		// 					title: '创建测试用户失败！！！',
+		// 					icon: 'none',
+		// 					duration: 2000
+		// 				})
+		// 			}
+		// 		})
+		// 	},
 
-			onTapEnterGift() {
-				wx.navigateTo({
-					url: "/pages/gift/gifts?id=" + this.userInfo.id,
-				})
-			},
-		}
+		// 	onTapEnterGift() {
+		// 		wx.navigateTo({
+		// 			url: "/pages/gift/gifts?id=" + this.userInfo.id,
+		// 		})
+		// 	},
+		// }
 
-		events = {
+		// events = {
 
-		}
+		// }
 
-		loadMpcoinBalance() {
-			IMoneyService.getBalance("mpcoin").then(balance => {
-				if (balance) {
-					this.mpcoinBalance = balance;
-					this.$apply();
-				}
-			})
-		}
+		// loadMpcoinBalance() {
+		// 	IMoneyService.getBalance("mpcoin").then(balance => {
+		// 		if (balance) {
+		// 			this.mpcoinBalance = balance;
+		// 			this.$apply();
+		// 		}
+		// 	})
+		// }
 
-		async loadUserInfo() {
-			let user = await UserService.getUserInfo();
-			let selfId = AccountService.getSelfId();
-			if (selfId !== user.id) {
-				user = await UserService.getUserInfo(0);
-			}
+		// async loadUserInfo() {
+		// 	let user = await UserService.getUserInfo();
+		// 	let selfId = AccountService.getSelfId();
+		// 	if (selfId !== user.id) {
+		// 		user = await UserService.getUserInfo(0);
+		// 	}
 
-			this.userInfo = user;
-			this.isMpOperator = UserService.isMpOperator(this.userInfo);
-			this.enableMP = user.enable_mpcoin;
-			if (!this.userInfo.avatar) {
-				this.userInfo.avatar = '../../images/blank_avatar.png'
-			}
-			this.userInfo.constellation = DateService.getAsterism(this.userInfo.birthday);
+		// 	this.userInfo = user;
+		// 	this.isMpOperator = UserService.isMpOperator(this.userInfo);
+		// 	this.enableMP = user.enable_mpcoin;
+		// 	if (!this.userInfo.avatar) {
+		// 		this.userInfo.avatar = '../../images/blank_avatar.png'
+		// 	}
+		// 	this.userInfo.constellation = DateService.getAsterism(this.userInfo.birthday);
 			
-			let now = new Date();
-			this.userInfo.age = this.userInfo.birthday ? now.getFullYear() - this.userInfo.birthday.substring(0, 4) : 0;
+		// 	let now = new Date();
+		// 	this.userInfo.age = this.userInfo.birthday ? now.getFullYear() - this.userInfo.birthday.substring(0, 4) : 0;
 			
-			this.$apply();
-			console.log(this.userInfo);
-		}
+		// 	this.$apply();
+		// 	console.log(this.userInfo);
+		// }
 
-		loadCounters() {
-			UserService.getCounters(["follower", "new_follower", "followee", "send_gift", "receive_gift"]).then(counter => {
-				if (counter) {
-					this.counter = counter;
-					this.$apply();
-				}
-			})
-		}
+		// loadCounters() {
+		// 	UserService.getCounters(["follower", "new_follower", "followee", "send_gift", "receive_gift"]).then(counter => {
+		// 		if (counter) {
+		// 			this.counter = counter;
+		// 			this.$apply();
+		// 		}
+		// 	})
+		// }
 
-		loadVisitors(reset=false) {
-			UserService.getVisitors(reset).then(
-				visitors => {
-					this.visitorCount = visitors.length;
-					this.visitors = visitors.slice(0, 5);
-					this.$apply();
-				}
-			)
-		}
+		// loadVisitors(reset=false) {
+		// 	UserService.getVisitors(reset).then(
+		// 		visitors => {
+		// 			this.visitorCount = visitors.length;
+		// 			this.visitors = visitors.slice(0, 5);
+		// 			this.$apply();
+		// 		}
+		// 	)
+		// }
 
-		onShareAppMessage() {
-			return {
-				title: '你有故事我有酒，泡吧撩妹，这里都有',
-				path: '/pages/login/login',
-				imageUrl: 'http://resource.vxiaocheng.com/mercury/share/paopao.jpg'
-			}
-		}
+		// onShareAppMessage() {
+		// 	return {
+		// 		title: '你有故事我有酒，泡吧撩妹，这里都有',
+		// 		path: '/pages/login/login',
+		// 		imageUrl: 'http://resource.vxiaocheng.com/mercury/share/paopao.jpg'
+		// 	}
+		// }
 
-		async checkNotify() {
-			this.hasNewNotify = await UserService.checkHasNewNotify()
-			this.$apply();
+		// async checkNotify() {
+		// 	this.hasNewNotify = await UserService.checkHasNewNotify()
+		// 	this.$apply();
 
-			WebIMService.loadUnReadMsgs();
+		// 	WebIMService.loadUnReadMsgs();
 
-			let data = WebIMService.Queue.getLists()
-			for (let i=0; i<data.length; i++) {
-				console.log(data, data[i].unread_count);
-				if (parseInt(data[i].self_id) == this.selfId) {
-					if(data[i].unread_count>0){
-						this.hasNewNotify = true;
-						this.$apply();
-						return
-					}
-				}
-			}	
-		}
+		// 	let data = WebIMService.Queue.getLists()
+		// 	for (let i=0; i<data.length; i++) {
+		// 		console.log(data, data[i].unread_count);
+		// 		if (parseInt(data[i].self_id) == this.selfId) {
+		// 			if(data[i].unread_count>0){
+		// 				this.hasNewNotify = true;
+		// 				this.$apply();
+		// 				return
+		// 			}
+		// 		}
+		// 	}	
+		// }
 
-		onShow() {
-			this.loadUserInfo();
-			this.loadMpcoinBalance();
-			this.loadCounters();
-			UserService.checkCount();
-			this.checkNotify();
-			this.$broadcast('update-bottom-navi');
-		}
+		// onShow() {
+		// 	this.loadUserInfo();
+		// 	this.loadMpcoinBalance();
+		// 	this.loadCounters();
+		// 	UserService.checkCount();
+		// 	this.checkNotify();
+		// 	this.$broadcast('update-bottom-navi');
+		// }
 
-		onLoad() {
-			wx.hideTabBar({})
+		// onLoad() {
+		// 	wx.hideTabBar({})
 
-			// 被拉黑用户直接清除缓存重定向至登录页面
-			AccountService.checkUserBlock().then(
-				data => {
-					if (data.is_block) {
-						Session.clear();
-						wx.redirectTo({
-							url: '/pages/login/login'
-						});
-					}
-				}
-			)
+		// 	// 被拉黑用户直接清除缓存重定向至登录页面
+		// 	AccountService.checkUserBlock().then(
+		// 		data => {
+		// 			if (data.is_block) {
+		// 				Session.clear();
+		// 				wx.redirectTo({
+		// 					url: '/pages/login/login'
+		// 				});
+		// 			}
+		// 		}
+		// 	)
 
-			this.loadVisitors();
-			this.isDevMode = AccountService.isDevMode()
+		// 	this.loadVisitors();
+		// 	this.isDevMode = AccountService.isDevMode()
 
-			// LocationService.wxGetLocation(this.$parent.globalData.qqmapKey).then(data => {
-			// 	LocationService.reportLocation().then(isSuccess => {
-			// 		if (isSuccess) {
-			// 			// this.loadNearbyUsers();
-			// 		}
-			// 	})
-			// });
+		// 	// LocationService.wxGetLocation(this.$parent.globalData.qqmapKey).then(data => {
+		// 	// 	LocationService.reportLocation().then(isSuccess => {
+		// 	// 		if (isSuccess) {
+		// 	// 			// this.loadNearbyUsers();
+		// 	// 		}
+		// 	// 	})
+		// 	// });
 
-			let forceUpdate = StorageService.getAndClear("forceUpdate");
-			if (forceUpdate) {
-				AccountService.updateVersion();
-			}
+		// 	let forceUpdate = StorageService.getAndClear("forceUpdate");
+		// 	if (forceUpdate) {
+		// 		AccountService.updateVersion();
+		// 	}
 
-			setTimeout(() => {
-				this.addMiniProgrameShow = false
-				this.$apply()
-			}, 11000)
-		}
+		// 	setTimeout(() => {
+		// 		this.addMiniProgrameShow = false
+		// 		this.$apply()
+		// 	}, 11000)
+		// }
 
 	}
 </script>

@@ -336,7 +336,7 @@ page {
 				</view>
 				<view class="x-i-location">
 					<image src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/group/group_location.png"></image>
-					<view>当前位置:<text>{{city}}</text></view>
+					<view>当前位置:<text>{{city ? city : '苏州'}}</text></view>
 				</view>
 			</view>
 		</view>

@@ -1,0 +1,1239 @@
+<style lang="less">
+page {
+	background-color: #f2f2f2;
+
+	.lineOverEllipsis {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.flexCenter {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+
+	.layer-wrapper {
+		background-color: rgba(0, 0, 0, .333);
+		height: 100vh;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		z-index: 1010;
+
+		.layer-bg {
+			height: 100%;
+			margin-bottom: -100vh;
+			width: 100%;
+		}
+	}
+
+	.container {
+		box-sizing: border-box;
+		height: 100vh;
+		overflow: hidden;
+		padding: 6.74663vh 58rpx 0;
+		position: relative;
+
+		.pick_btn {
+			height: 59rpx;
+			position: absolute;
+			right: 20rpx;
+			top: 20rpx;
+			width: 152rpx;
+			z-index: 1000;
+
+			image {
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		//喜欢与否按钮
+		.likeornot_btns {
+			bottom: 10.5vh;
+			display: flex;
+			justify-content: space-between;
+			left: 122rpx;
+			position: absolute;
+			width: 494rpx;
+
+			view {
+				align-items: center;
+				border-radius: 50%;
+				display: flex;
+				height: 138rpx;
+				justify-content: center;
+				width: 138rpx;
+
+				image {
+					display: block;
+					height: 100%;
+					width: 100%;
+				}
+			}
+
+			.dislike_btn {
+				background-color: #8e8e8e;
+			}
+
+			.like_btn {
+				background-color: #de0b52;
+			}
+		}
+
+		//泡Ta按钮
+		.private_chat {
+			position: fixed;
+			right: 0rpx;
+			top: 48.46932vh;
+			width: 97rpx;
+			height: 90rpx;
+		}
+
+		//弹幕按钮
+		.danmu-btn {
+			align-items: center;
+			background-color: #000;
+			border-radius: 90rpx;
+			display: flex;
+			height: 90rpx;
+			justify-content: space-between;
+			padding: 0 100rpx 0 18rpx;
+			position: fixed;
+			right: -100rpx;
+			top: 39.46932vh;
+			transition: .3s;
+			width: 300rpx;
+
+			view {
+				border-radius: 50%;
+				font-size: 30rpx;
+				font-weight: bold;
+				height: 60rpx;
+				width: 60rpx;
+				.flexCenter;
+			}
+
+			.dan {
+				background-color: #F5DA00;
+				border: 7rpx solid #FAC600;
+				color: #000;
+			}
+
+			.send {
+				color: #fff;
+			}
+		}
+
+		//弹幕输入框
+		.danmu-wrapper {
+			height: 100vh;
+			left: 0;
+			overflow: hidden;
+			position: fixed;
+			top: 200rpx;
+			transition: .3s;
+			width: 100vw;
+			z-index: 998;
+			.bg {
+				height: 100%;
+				position: absolute;
+				top: -200rpx;
+				width: 100%;
+			}
+
+			.danmu-input {
+				align-items: center;
+				background-color: #fff;
+				border: 3rpx solid #000;
+				border-radius: 60rpx;
+				box-sizing: border-box;
+				display: flex;
+				height: 70rpx;
+				left: 15vw;
+				padding: 0 10rpx 0 30rpx;
+				position: absolute;
+				bottom: 55vh;
+				width: 70vw;
+				input {
+					flex: 1;
+					font-size: 28rpx;
+					height: 50rpx;
+				}
+				image {
+					border-radius: 50%;
+					display: block;
+					height: 50rpx;
+					margin-left: 20rpx;
+					width: 50rpx;
+				}
+			}
+		}
+	}
+
+	// .xui-container {
+	// 	background-color: #fff;
+	// }
+
+	//相互喜欢弹出层
+	.like-eachother {
+		background-color: rgba(0, 0, 0, .82);
+		height: 100vh;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		z-index: 1010;
+
+		.pics {
+			background: url('https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/likeeachother_bg.png') no-repeat;
+			background-size: 100%;
+			height: 324rpx;
+			margin: 12.44377811vh auto 6.14692654vh;
+			position: relative;
+			width: 524rpx;
+
+			image {
+				border-radius: 50%;
+				display: block;
+				height: 254rpx;
+				left: 222rpx;
+				position: absolute;
+				margin-top: -127rpx;
+				top: 50%;
+				width: 254rpx;
+			}
+
+			image:first-child {
+				left: 50rpx;
+			}
+		}
+
+		.txt {
+			box-sizing: border-box;
+			color: #fff;
+			font-size: 32rpx;
+			margin-bottom: -15rpx;
+			padding: 0 176rpx;
+			text-align: center;
+			width: 100%;
+
+			view {
+				margin-bottom: 15rpx;
+
+				text {
+					color: #ff0;
+					font-size: 34rpx;
+				}
+			}
+
+			view:first-child {
+				text {
+					color: #ff0;
+					font-size: 36rpx;
+				}
+			}
+		}
+
+		.btns {
+			margin: 17.541229385vh auto -32rpx;
+			width: 558rpx;
+
+			view {
+				background-color: #000;
+				border-radius: 88rpx;
+				color: #fff;
+				font-size: 32rpx;
+				height: 80rpx;
+				line-height: 80rpx;
+				margin-bottom: 32rpx;
+				text-align: center;
+				width: 100%;
+			}
+
+			view:first-child {
+				background-color: #545454;
+			}
+		}
+	}
+
+	//去完善弹窗
+	.tofinishdata {
+		background-color: #fff;
+		box-sizing: border-box;
+		border-radius: 20rpx;
+		height: 424rpx;
+		margin: 29.685157421vh auto 0;
+		padding-top: 177rpx;
+		position: relative;
+		width: 660rpx;
+
+		image {
+			display: block;
+			position: absolute;
+		}
+
+		.bg-left {
+			height: 103rpx;
+			left: 73rpx;
+			top: 77rpx;
+			width: 92rpx;
+		}
+
+		.bg-center {
+			height: 212rpx;
+			left: 50%;
+			top: -88rpx;
+			transform: translateX(-113rpx);
+			width: 226rpx;
+		}
+
+		.bg-right {
+			height: 193rpx;
+			right: 62rpx;
+			top: 35rpx;
+			width: 175rpx;
+		}
+
+		text {
+			color: #000;
+			display: block;
+			font-size: 24rpx;
+			text-align: center;
+			width: 100%;
+		}
+
+		.tofinish-btn {
+			background-color: #000;
+			border-radius: 77rpx;
+			color: #fff;
+			font-size: 24rpx;
+			height: 72rpx;
+			line-height: 72rpx;
+			margin: 40rpx auto 0;
+			text-align: center;
+			width: 469rpx;
+		}
+	}
+
+	//分享及上限提示弹窗
+	.sharetip-content {
+		background: #fff url(https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/share-tip_bg.png) no-repeat;
+		background-size: 100%;
+		border-radius: 20rpx;
+		box-sizing: border-box;
+		height: 423rpx;
+		margin: 29.685157421vh auto 0;
+		padding-top: 132rpx;
+		width: 658rpx;
+
+		.sharetip-txt {
+			align-items: center;
+			color: #000;
+			display: flex;
+			flex-direction: column;
+			font-size: 30rpx;
+			line-height: 36rpx;
+			justify-content: center;
+
+			text:last-child {
+				background: url(https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/share-tip-arrow.png) no-repeat 100% 50%;
+				background-size: 20rpx 19rpx;
+				padding-right: 30rpx;
+			}
+		}
+
+		.sharetip-btns {
+			display: flex;
+			height: 66rpx;
+			justify-content: space-between;
+			margin: 78rpx auto 0;
+			width: 540rpx;
+
+			button {
+				align-items: center;
+				background-color: #000;
+				border-radius: 69rpx;
+				color: #fff;
+				display: flex;
+				font-size: 24rpx;
+				height: 100%;
+				justify-content: center;
+				padding: 0;
+				width: 228rpx;
+			}
+		}
+	}
+
+	.closeaction {
+		bottom: 108rpx;
+		height: 100vh;
+		left: 0;
+		position: fixed;
+		width: 100vw;
+		z-index: 1009;
+	}
+
+	//一次性引导层
+	.direction {
+		align-items: center;
+		background: rgba(0, 0, 0, .7);
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		z-index: 10000;
+
+		view {
+			height: 375rpx;
+			position: relative;
+			width: 375rpx;
+
+			image {
+				display: block;
+				position: absolute;
+			}
+		}
+
+		.left {
+
+			.path-left {
+				height: 33rpx;
+				left: 58rpx;
+				top: 50rpx;
+				transform: rotate(-20deg);
+				width: 68rpx;
+			}
+
+			.gesture-left {
+				animation: rotateLeft 2s linear 3;
+				height: 166rpx;
+				left: 135rpx;
+				top: 12rpx;
+				transform-origin: 55% 100%;
+				width: 116rpx;
+			}
+
+			.text-left {
+				height: 38rpx;
+				left: 128rpx;
+				top: 225rpx;
+				width: 150rpx;
+			}
+		}
+
+		.right {
+
+			.path-right {
+				height: 33rpx;
+				right: 58rpx;
+				top: 50rpx;
+				transform: rotate(20deg);
+				width: 68rpx;
+			}
+
+			.gesture-right {
+				animation: rotateRight 2s linear 3;
+				height: 166rpx;
+				right: 135rpx;
+				top: 12rpx;
+				transform-origin: 50% 100%;
+				width: 116rpx;
+			}
+
+			.text-right {
+				height: 38rpx;
+				right: 128rpx;
+				top: 225rpx;
+				width: 150rpx;
+			}
+		}
+
+		@keyframes rotateLeft {
+			0% {
+				transform: rotate(0)
+			}
+
+			;
+
+			70% {
+				transform: rotate(-45deg)
+			}
+
+			;
+
+			100% {
+				transform: rotate(-45deg)
+			}
+
+			;
+		}
+
+		@keyframes rotateRight {
+			0% {
+				transform: rotate(0)
+			}
+
+			;
+
+			70% {
+				transform: rotate(45deg)
+			}
+
+			;
+
+			100% {
+				transform: rotate(45deg)
+			}
+
+			;
+		}
+	}
+}
+</style>
+<template>
+	<view class="container" catchtouchmove="doNothing">
+		<view class="pick_btn" @tap.stop="tapToPick">
+			<image src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/filter_btn.png"></image>
+		</view>
+		<tantan id="tantan" :paoypaoHasChosen.sync="hasChosen"></tantan>
+		<!-- 喜欢与否按钮 -->
+		<view class="likeornot_btns">
+			<view class="dislike_btn" @tap.stop="tapDislike">
+				<image src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/dislike_btn.png"></image>
+			</view>
+			<view class="like_btn" @tap.stop="tapLike">
+				<image src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/like_btn.png"></image>
+			</view>
+		</view>
+		<!-- 私聊按钮 -->
+		<image class="private_chat" mode="scaleToFill" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao_friend/minichat_btn.png" @tap.stop="onTapChat"></image>
+		<!-- 弹幕按钮 -->
+		<view class="danmu-btn" style="right: {{danmuBtnShow ? '-100rpx' : '-318rpx'}}">
+			<view class="dan" @tap.stop="tapShowDanmuBtn">弹</view>
+			<view class="send" @tap.stop="tapShowDanmuInput">发</view>
+			<switch class="danmu-switch" color="#F5DA00" checked bindchange="danmuSwitch"/>
+		</view>
+		<!-- 弹幕输入框 -->
+		<view class="danmu-wrapper" style="height: {{danmuInputShow ? '100vh' : '0'}}">
+			<view class="bg" @tap.stop="tapCloseDanmuInput"></view>
+			<view class="danmu-input">
+				<input type="text" placeholder="输入弹幕内容(最多20字符)" placeholder-style="color: #666" value="{{danmuInputValue}}" bindinput="getDanmuInput">
+				<image src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/danmusend_icon.png" @tap.stop="tapSendDanmu"></image>
+			</view>
+		</view>
+		<!-- 送礼组件 -->
+		<!-- <mp-widget></mp-widget> -->
+	</view>
+	
+	<!-- 公用遮罩层 -->
+	<view class="layer-wrapper" wx:if="{{finishDataTipShow || shareTipShow || limitTipShow}}">
+		<view class="layer-bg"></view>
+		<!-- 完善资料提示框 -->
+		<view class="tofinishdata" wx:if="{{finishDataTipShow}}">
+			<image class="bg-left" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/tofinishdata_bg%20(3).png"></image>
+			<image class="bg-center" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/tofinishdata_bg%20(1).png"></image>
+			<image class="bg-right" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/tofinishdata_bg%20(2).png"></image>
+			<text>想泡更多的小哥哥/小姐姐</text>
+			<text>去制作自己的卡片吧</text>
+			<text>这样配对成功的几率更高噢!</text>
+			<view class="tofinish-btn" @tap.stop="tapToFinishData">去完善</view>
+		</view>
+		<!-- 分享资料弹窗 -->
+		<view class="sharetip-content" wx:if="{{shareTipShow || limitTipShow}}">
+			<view class="sharetip-txt">
+				<block wx:for="{{shareTipInfo.txts}}" wx:if="{{shareTipShow}}">
+					<text>{{item}}</text>
+				</block>
+				<view wx:if="{{limitTipShow}}">今日已达上限200</view>
+			</view>
+			<view class="sharetip-btns" style="justify-content: {{limitTipShow ? 'center' : 'space-between'}}">
+				<button open-type="share" wx:if="{{shareTipShow}}">{{shareTipInfo.Truebtn_txt}}</button>
+				<button @tap.stop="tapRest" wx:if="{{shareTipShow}}">{{shareTipInfo.Falsebtn_txt}}</button>
+				<button @tap.stop="tapRest" wx:if="{{limitTipShow}}">我知道了</button>
+			</view>
+		</view>
+	</view>
+	<!-- 互相喜欢弹出层 -->
+	<view class="like-eachother" wx:if="{{likeLayerShow}}">
+		<view class="pics">
+			<image src="{{selfInfo.avatar}}"></image>
+			<image src="{{pickedUser.coverPicUrl}}"></image>
+		</view>
+		<view class="txt">
+			<view>你和"<text>{{pickedUser.username}}</text>"互相喜欢噢</view>
+			<view>快去<text>泡Ta</text>吧</view>
+		</view>
+		<view class="btns">
+			<view @tap.stop="tapSendMessage">发送消息</view>
+			<view @tap.stop="tapContinuePao">继续泡一泡</view>
+		</view>
+	</view>
+	<!-- 关闭操作层 -->
+	<view class="closeaction" wx:if="{{closeActionShow}}" @tap.stop="tapTipUpperLimit" ontouchend="tapTipUpperLimit"></view>
+	<!-- 一次性引导层 -->
+	<view class="direction" wx:if="{{directionShow}}" @tap.stop="tapCloseDirection">
+		<view class="left">
+			<image class="path-left" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/pathdirection_left.png"></image>
+			<image class="gesture-left" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/gesture_left.png"></image>
+			<image class="text-left" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/textpic_left.png"></image>
+		</view>
+		<view class="right">
+			<image class="path-right" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/pathdirection_right.png"></image>
+			<image class="gesture-right" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/gesture_right.png"></image>
+			<image class="text-right" src="https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/textpic_right.png"></image>
+		</view>
+	</view>
+	<bottomnavi :current.sync="current"></bottomnavi>
+	<!-- <apply-scope></apply-scope> -->
+</template>
+<script>
+import wepy from 'wepy'
+const app = getApp()
+import BottomNavi from '../../components/bottom_navi'
+import TanTan from '../../components/tantan'
+// import UserService from '../../services/user_service'
+// import LocationService from '../../services/location_service'
+// import AccountService from '../../services/account_service'
+// import DateService from '../../services/date_service'
+// import GiftService from '../../services/gift_service'
+// import StorageService from '../../services/storage_service'
+// import TagService from '../../services/tag_service'
+// import WebIMService from '../../services/webim_service'
+// import MPWidget from '../../components/mp_widget'
+// import MP from '../../services/mp_service'
+// import Session from '../../lib/session'
+// import _ from '../../lib/mptool'
+// import ApplyScope from '../../components/apply_scope'
+// import WxNotifyService from '../../services/weixin_notify_service'
+
+export default class Paoypao extends wepy.page {
+	config = {
+		navigationBarTitleText: "发现"
+	}
+	components = {
+		bottomnavi: BottomNavi,
+		tantan: TanTan,
+		// "apply-scope": ApplyScope,
+		// 'mp-widget': MPWidget,
+	}
+
+	data = {
+		current: 'challenge',
+		isiPhoneUser: false,
+
+		searchOptions: {
+			sex: 'any',
+			distance: 50,
+			tags: []
+		},
+
+		viewFriendPageUserId: 0,
+		processCount: 0,
+		triggerCompleteProfileCount: 1,
+		isProfileInitialized: true,
+		likeLayerShow: false, //配对成功弹窗显隐
+		finishDataTipShow: false, //完善资料弹窗显隐
+		shareTipShow: false, //转发提示弹窗显隐
+		pickedUser: {},
+		curUser: {},
+		selfInfo: '',
+		hasChosen: false,
+		processCountStart: 0,
+		closeActionShow: false, //关闭操作弹窗显隐
+		directionShow: false, //首次引导层显隐
+		limitTipShow: false, //上限提醒弹窗显隐
+		shareTipInfo: {},
+		barrages: [],  //弹幕数组
+		danmuBtnShow: false,
+		danmuInputShow: false,
+		danmuInputValue: '',
+		enableMP: false,
+		showGift: false,
+		selectGiftId: 0,
+		userId: 0,
+	}
+
+	// events = {
+	// 	'add-images': () => {
+	// 		console.log('receive add-images, load more user')
+	// 		this.loadNextUsers();
+	// 	},
+	// 	'like-item': (user) => {
+	// 		console.log(`like ${user.id} - ${user.name}`)
+
+	// 		UserService.likeUser(user.id, {
+	// 			hideLoading: true
+	// 		}).then(resp => {
+	// 			console.warn(resp);
+	// 			if (resp.isSuccess) {
+	// 				if (resp.isMutualLike) {
+	// 					console.warn('mutual like');
+	// 					this.showMutualLikeModal(user.id);
+	// 				}
+	// 				this.updateProcessCount();
+	// 			}
+	// 		})
+
+	// 		UserService.getUserInfo(user.id).then(userInfo => {
+	// 			console.log('当前喜欢user userInfo', userInfo)
+	// 			if (userInfo.source == 'opuser') {
+	// 				UserService.tellRobotReplay(user.id, this.selfInfo.id)
+	// 			}
+	// 		})
+			
+	// 		app.aldstat.sendEvent("喜欢", {
+	// 			"用户ID": this.selfInfo.id + "",
+	// 			"时间": _.getAldTime()
+	// 		})
+	// 	},
+	// 	'dislike-item': (user) => {
+	// 		console.log(`dislike ${user.id} - ${user.name}`);
+	// 		UserService.dislikeUser(user.id).then(isSuccess => {
+	// 			if (isSuccess) {
+	// 				this.updateProcessCount();
+	// 			}
+	// 		});
+	// 		app.aldstat.sendEvent("不喜欢", {
+	// 			"用户ID": this.selfInfo.id + "",
+	// 			"时间": _.getAldTime()
+	// 		})
+	// 	},
+	// 	'tap-item': (user) => {
+	// 		this.viewFriendPageUserId = user.id;
+	// 		app.aldstat.sendEvent("从泡一泡查看用户", {
+	// 			"用户ID": this.selfInfo.id + "",
+	// 			"时间": _.getAldTime()
+	// 		})
+
+	// 		wx.navigateTo({
+	// 			url: '/pages/paoypao/paoypao_friend?source=paoypao&id=' + user.id
+	// 		})
+	// 	},
+	// 	'focus-user': (user) => {
+	// 		this.curUser = user;
+	// 	},
+	// 	'trigger-perfecting': () => {
+	// 		this.finishDataTipShow = true
+	// 	}
+	// }
+
+	// methods = {
+	// 	doNothing() {},
+	// 	async onTapChat() {
+	// 		let cid = this.curUser.id;
+	// 		if (this.isiPhoneUser) {
+	// 			wx.navigateTo({
+	// 				url: '/package/pages/chatroom/chatroom?touserid=' + cid,
+	// 			})
+	// 			return;
+	// 		}
+
+	// 		if (this.enableMP) {
+	// 			if (this.selfInfo.sex == "female") {
+	// 				wx.navigateTo({
+	// 					url: '/package/pages/chatroom/chatroom?touserid=' + cid,
+	// 				})
+	// 				return;
+	// 			}
+
+	// 			let data = await UserService.getUserPrivateChatPermission(cid);
+	// 			if (data.private_chat_permission) {
+	// 				wx.navigateTo({
+	// 					url: '/package/pages/chatroom/chatroom?touserid=' + cid,
+	// 				})
+	// 				return;
+	// 			}
+
+	// 			let accostRes = await GiftService.hasAccostUser(cid);
+	// 			if (accostRes.is_accost) {
+	// 				wx.navigateTo({
+	// 					url: '/package/pages/chatroom/chatroom?touserid=' + cid,
+	// 				})
+	// 				return;
+	// 			}
+
+	// 			MP.sendGift({
+	// 				userId: cid,
+	// 				page: 'tab',
+	// 				showTitle: false,
+	// 				complete: (success = false, gift = null) => {
+	// 					this.showGift = false;
+	// 					this.selectGiftId = 0;
+	// 					if (success) {
+	// 						app.aldstat.sendEvent("完成泡TA", {
+	// 							"用户ID": this.selfInfo.id + "",
+	// 							"时间": _.getAldTime()
+	// 						})
+	// 						GiftService.accostUser(cid);
+	// 						if (gift) {
+ //                                WebIMService.sendGiftMsg(cid, gift.name, this.selfInfo)
+	// 						}
+	// 						wx.navigateTo({
+	// 							url: '/package/pages/chatroom/chatroom?touserid=' + cid,
+	// 						})
+	// 					}
+	// 				}
+	// 			});
+	// 		} else {
+	// 			wx.navigateTo({
+	// 				url: '/package/pages/chatroom/chatroom?touserid=' + this.curUser.id,
+	// 			})
+	// 		}
+	// 	},
+	// 	//筛选按钮
+	// 	tapToPick() {
+	// 		const ID = AccountService.getSelfId()
+	// 		app.aldstat.sendEvent("泡一泡选择搜索条件进行搜索", {
+	// 			"用户ID": ID + "",
+	// 			"时间": _.getAldTime()
+	// 		})
+	// 		let initTagIds = this.searchOptions.tags.map(tag => {
+	// 			return tag.id;
+	// 		})
+	// 		initTagIds = JSON.stringify(initTagIds);
+	// 		let pageUrl = `/pages/paoypao/paoypao_pick?sex=${this.searchOptions.sex}&distance=${this.searchOptions.distance}&tag_ids=${initTagIds}`;
+	// 		console.warn(pageUrl);
+	// 		wx.navigateTo({
+	// 			url: pageUrl
+	// 		})
+	// 	},
+	// 	//不喜欢按钮
+	// 	tapDislike() {
+	// 		if (this.hasChosen) return;
+	// 		this.hasChosen = true
+	// 		this.$invoke('tantan', 'likeOrNot', 'dislike')
+	// 	},
+	// 	//喜欢按钮
+	// 	tapLike() {
+	// 		if (!this.isProfileInitialized) {
+	// 			this.finishDataTipShow = true
+	// 			this.$apply();
+	// 			return;
+	// 		}
+	// 		if (this.hasChosen) return;
+	// 		this.hasChosen = true
+	// 		this.$invoke('tantan', 'likeOrNot', 'like')
+	// 	},
+	// 	//发送消息
+	// 	tapSendMessage() {
+	// 		wx.navigateTo({
+	// 			url: `/package/pages/chatroom/chatroom?touserid=${this.pickedUser.id}`
+	// 		})
+	// 	},
+	// 	//继续泡一泡
+	// 	tapContinuePao() {
+	// 		this.likeLayerShow = false
+	// 	},
+	// 	//关闭公共遮罩层
+	// 	tapRest() {
+	// 		this.finishDataTipShow = false
+	// 		this.shareTipShow = false
+	// 		this.limitTipShow = false
+	// 	},
+	// 	//去完善按钮
+	// 	tapToFinishData() {
+	// 		this.finishDataTipShow = false
+	// 		wx.navigateTo({
+	// 			url: '/pages/profile/perfecting_data'
+	// 		})
+	// 	},
+	// 	//上限提示弹窗
+	// 	tapTipUpperLimit() {
+	// 		this.limitTipShow = true
+	// 	},
+	// 	//关闭首次引导层
+	// 	tapCloseDirection() {
+	// 		this.directionShow = false
+	// 	},
+	// 	//弹幕按钮显隐
+	// 	tapShowDanmuBtn() {
+	// 		this.danmuBtnShow = !this.danmuBtnShow
+	// 	},
+	// 	//弹幕显隐
+	// 	danmuSwitch(e) {
+	// 		this.$broadcast('show-danmu', e.detail.value)
+	// 	},
+	// 	//弹幕输入框显隐
+	// 	tapCloseDanmuInput() {
+	// 		this.danmuInputShow = false
+	// 		this.danmuInputValue = ''
+	// 	},
+	// 	tapShowDanmuInput() {
+	// 		this.danmuInputShow = true
+	// 		this.danmuBtnShow = false
+	// 	},
+	// 	getDanmuInput(e) {
+	// 		this.danmuInputValue = e.detail.value
+	// 	},
+	// 	//发送弹幕
+	// 	tapSendDanmu() {
+	// 		if (!this.danmuInputValue.length) return;
+	// 		const value = this.danmuInputValue
+	// 		this.danmuInputShow = false
+	// 		this.danmuInputValue = ''
+	// 		this.$invoke('tantan', 'addDanmu', this.selfInfo, value)
+	// 		AccountService.putDanmu(this.curUser.id, value)
+	// 	}
+	// }
+
+	// forwardNextDistance() {
+	// 	if (this.searchOptions.distance == 50) {
+	// 		this.searchOptions.distance = 100;
+	// 	} else if (this.searchOptions.distance == 100) {
+	// 		this.searchOptions.distance = 3000;
+	// 	}
+	// }
+
+	// updateProcessCount() {
+	// 	this.processCount += 1
+	// 	Session.setKey("paopao_process_count", this.processCount);
+
+	// 	// if (!this.isProfileInitialized) {
+	// 	// 	if (this.processCount >= this.triggerCompleteProfileCount) {
+	// 	// 		this.finishDataTipShow = true
+	// 	// 		this.$apply();
+	// 	// 		console.log('因为没有完善资料，所以再次弹出显示')
+	// 	// 	}
+	// 	// }
+	// 	// 除首次进入滑10触发完善资料每滑30，70，100次均触发一次转发
+	// 	if (0 > 1) {
+	// 		this.finishDataTipShow = true
+	// 		this.$apply();
+	// 	} else if (this.processCount == this.processCountStart + 30) {
+	// 		this.shareTipInfo = {
+	// 			txts: ['你是魔鬼吗？', '这么快就划了30个！', '给个小心心，分享一下吧！'],
+	// 			Truebtn_txt: '给小心心',
+	// 			Falsebtn_txt: '不给 继续玩'
+	// 		}
+	// 		this.shareTipShow = true
+	// 		this.$apply();
+	// 	} else if (this.processCount == this.processCountStart + 100) {
+	// 		this.shareTipInfo = {
+	// 			txts: ['这么厉害你咋不上天？', '叫上小伙伴一起来泡泡吧！'],
+	// 			Truebtn_txt: '召唤小伙伴',
+	// 			Falsebtn_txt: '不要 自己玩'
+	// 		}
+	// 		this.shareTipShow = true
+	// 		this.$apply();
+	// 	} else if (this.processCount == this.processCountStart + 200) {
+	// 		this.shareTipInfo = {
+	// 			txts: ['你这样的手速，我们真的很难沟通。', '请冷静120min，为你推荐更多！'],
+	// 			Truebtn_txt: '分享',
+	// 			Falsebtn_txt: '先冷静一下'
+	// 		}
+	// 		this.shareTipShow = true
+	// 		this.closeActionShow = true
+	// 		this.$apply()
+	// 		Session.setKey("paoypao__ActionOver", true)
+	// 	}
+	// }
+
+	// async showMutualLikeModal(userId) {
+	// 	let userinfo = await UserService.getUserInfo(userId);
+	// 	this.pickedUser.coverPicUrl = userinfo.avatar;
+	// 	this.pickedUser.username = userinfo.name;
+	// 	this.pickedUser.id = userId;
+	// 	this.likeLayerShow = true;
+	// 	this.$apply();
+	// 	let tags = await TagService.getUserTags(userId);
+	// 	let tagArray = [];
+	// 	tags.forEach(tag => {
+	// 		tagArray.push(tag.name);
+	// 	});
+	// 	setTimeout(() => {
+	// 		WxNotifyService.sendMatchNofitication(userId, this.selfInfo.id, userinfo.name, tagArray.toString());
+	// 	}, 1000);
+	// }
+
+	// loadNextUsers(reset) {
+	// 	let tagIds = this.searchOptions.tags.map(tag => {
+	// 		return tag.id;
+	// 	})
+	// 	AccountService.getNearbyUsers(reset, this.searchOptions.distance, this.searchOptions.sex, tagIds).then(async users => {
+	// 		console.log(users)
+	// 		if (users == null) {
+	// 			return;
+	// 		}
+			
+	// 		if (users.length == 0) {
+	// 			if (reset) {
+	// 				this.$invoke('tantan', 'resetUsers', [])
+	// 			} else {
+	// 				this.$invoke('tantan', 'addUsers', [])
+	// 			}
+	// 			this.forwardNextDistance()
+	// 			setTimeout(() => {
+	// 				this.loadNextUsers()
+	// 			})
+
+	// 			return
+	// 		}
+	// 		let newUsers = [];
+	// 		let userIds = [];
+	// 		let tos = [];
+
+	// 		users.forEach(user => {
+	// 			newUsers.push({
+	// 				id: user.id,
+	// 				picNum: 0,
+	// 				coverPicUrl: user.avatar,
+	// 				username: user.name,
+	// 				lat: user.latitude,
+	// 				lng: user.longitude,
+	// 				distance: user.distance ? user.distance : "...",
+	// 				sex: user.sex,
+	// 				age: user.age,
+	// 				asterism: DateService.getAsterism(user.birthday),
+	// 				address: user.region,
+	// 				isVisitSameBar: false,
+	// 				x: 0, //左滑右滑效果所用坐标初始化
+	// 				y: 0
+	// 			})
+
+	// 			userIds.push(user.id);
+	// 			tos.push({
+	// 				latitude: user.latitude,
+	// 				longitude: user.longitude
+	// 			})
+	// 		});
+
+	// 		if (reset) {
+	// 			this.$invoke('tantan', 'resetUsers', newUsers)
+	// 		} else {
+	// 			this.$invoke('tantan', 'addUsers', newUsers)
+	// 		}
+	// 		// LocationService.calculateDistance(tos).then((key2distance) => {
+	// 		// 	this.$invoke('tantan', 'updateDistances', key2distance)
+	// 		// })
+
+	// 		UserService.getImageCounts(userIds).then(user2count => {
+	// 			this.$invoke('tantan', 'updateImageCount', user2count)
+	// 		})
+
+	// 		UserService.getVisitSameBarUsers(userIds).then(targetUserIds => {
+	// 			this.$invoke('tantan', 'updateVisitSameBarUsers', targetUserIds)
+	// 		})
+
+	// 		UserService.getUserVisits(userIds).then(user2visits => {
+	// 			this.$invoke('tantan', 'updateUserVisits', user2visits)
+	// 		})	
+
+	// 		this.getAddressByCoordinate(tos, true);
+	// 	})
+	// }
+
+	// onLoad(e) {
+	// 	wx.hideTabBar({})
+	// 	this.isiPhoneUser = StorageService.get('isiPhoneUser');
+	// 	this.userId = AccountService.getSelfId();
+
+	// 	// 被拉黑用户直接清除缓存重定向至登录页面
+	// 	AccountService.checkUserBlock().then(
+	// 		data => {
+	// 			if (data.is_block) {
+	// 				Session.clear();
+	// 				wx.redirectTo({
+	// 					url: '/pages/login/login'
+	// 				});
+	// 			}
+	// 		}
+	// 	)
+		
+	// 	UserService.getUserInfo().then(userInfo => {
+	// 		this.enableMP = userInfo.enable_mpcoin;
+	// 		if (userInfo.sex == 'female') {
+	// 			this.searchOptions.sex = 'male';
+	// 		} else {
+	// 			this.searchOptions.sex = 'female'
+	// 		}
+	// 		this.selfInfo = userInfo;
+	// 		this.$apply();
+	// 		this.loadNextUsers(true);
+	// 	})
+
+	// 	LocationService.reportLocation();
+	// }
+
+	// onShow() {
+	// 	MP.bind(this);
+	// 	this.hasChosen = false;
+	// 	this.$broadcast('update-bottom-navi');
+
+	// 	try {
+	// 		let finished_profile = wx.getStorageSync('finished_profile');
+	// 		if (finished_profile) {
+	// 			this.isProfileInitialized = true;
+	// 			this.$apply();
+	// 			wx.removeStorage({
+	// 				key: 'finished_profile',
+	// 				success (res) {
+	// 					console.log(res.data)
+	// 				}
+	// 			})
+	// 		} else {
+	// 			UserService.isProfileInitialized().then(isInitialized => {
+	// 				this.isProfileInitialized = isInitialized;
+	// 				this.$apply();
+	// 			});
+	// 		}
+	// 	} catch (e) {
+	// 		console.log(e)
+	// 	}
+	// 	if (this.isProfileInitialized) {
+	// 		this.$invoke('tantan', 'updateProfileInitialized');
+	// 	}
+                       
+	// 	Session.getKey("paopao_process_count") ? '' : Session.setKey("paopao_process_count", 0)
+	// 	//判断是否首次登录
+	// 	this.directionShow = Session.getKey('paoypao_directionShowed') ? false : true
+	// 	this.processCountStart = Session.getKey("paoypao_directionShowed") ? 0 : 1
+	// 	this.processCount = Session.getKey("paopao_process_count")
+	// 	//判断当前滑动次数是否上限
+	// 	this.closeActionShow = Session.getKey("paoypao__ActionOver") == true ? true : false
+	// 	this.$apply()
+
+	// 	Session.getKey('paoypao_directionShowed') ? '' : Session.setKey('paoypao_directionShowed', true)
+		
+	// 	this.$broadcast('apply-scope', {
+	// 		scope: 'scope.userLocation',
+	// 		title: '泡泡需要您的位置信息，以为您推荐合适的Ta，请授权位置信息'
+	// 	}, () => {
+	// 		let isReturnFromApplyScope = StorageService.getAndClear("is_return_from_apply_scope");
+	// 		if (isReturnFromApplyScope) {
+	// 			console.warn("load next users true")
+	// 			this.loadNextUsers(true);
+	// 		}
+
+	// 		let searchOptions = StorageService.getAndClear("pao_search_options");
+	// 		if (searchOptions) {
+	// 			this.searchOptions = searchOptions;
+	// 			this.loadNextUsers(true);
+	// 		}
+
+	// 		let friendPageAction = StorageService.getAndClear('paoypao_friend_action');
+	// 		if (friendPageAction) {
+	// 			let items = friendPageAction.split('_');
+	// 			let action = items[0];
+	// 			let userId = parseInt(items[1]);
+	// 			if (this.viewFriendPageUserId == userId) {
+	// 				setTimeout(() => {
+	// 					this.$invoke('tantan', 'likeOrNot', action)
+	// 				}, 300)
+	// 				setTimeout(() => {
+	// 					let isMutualLike = StorageService.getAndClear('paoypao_friend_mutual_like')
+	// 					if (isMutualLike) {
+	// 						this.showMutualLikeModal(userId);
+	// 					}
+	// 				}, 600)
+	// 			}
+	// 		}
+	// 	});
+	// }
+
+	// async getAddressByCoordinate(tos, flag) {
+	// 	let cc = [...tos];
+	// 	if (flag) {
+	// 		LocationService.getAddressByCoordinate(cc).then(
+	// 			async data => {
+	// 				let keys = Object.keys(data);
+	// 				if (keys.length > 0) {
+	// 					this.$invoke('tantan', 'updateAddress', data)
+	// 				}
+	// 				if (keys.length < cc.length) {
+	// 					for (let i=0; i<keys.length; i++) {
+	// 						let lat = keys[i].split("_")[0];
+	// 						let lng = keys[i].split("_")[1];
+	// 						let item = {
+	// 							"latitude": lat,
+	// 							"longitude": lng
+	// 						}
+	// 						let index = cc.indexOf(item);
+	// 						cc.splice(index, 1);
+	// 					}
+	// 					let coordAddressData = [];
+
+	// 					for (let i=0; i<5; i++) {
+	// 						if (cc.length > 0) {
+	// 							let c = cc.shift();
+	// 							let data = await LocationService.getLocationInfoByCoordinate(c);
+	// 							this.$invoke('tantan', 'updateAddress', data);
+	// 							let key = `${c.latitude}_${c.longitude}`
+	// 							coordAddressData.push({
+	// 								"latitude": c.latitude,
+	// 								"longitude": c.longitude,
+	// 								"address": data[key]
+	// 							})
+	// 						} else {
+	// 							break;
+	// 						}
+	// 					}
+
+	// 					LocationService.updateCoordinateAddress(coordAddressData);
+
+	// 					if (cc.length > 0) {
+	// 						setTimeout(() => {
+	// 							this.getAddressByCoordinate(cc, false);
+	// 						}, 1080);
+	// 					}
+	// 				}
+	// 			}
+	// 		)
+	// 	} else {
+	// 		let coordAddressData = [];
+
+	// 		for (let i=0; i<5; i++) {
+	// 			if (cc.length > 0) {
+	// 				let c = cc.shift();
+	// 				await LocationService.getLocationInfoByCoordinate(c).then(
+	// 					(data) => {
+	// 						this.$invoke('tantan', 'updateAddress', data);
+	// 						let key = `${c.latitude}_${c.longitude}`
+	// 						coordAddressData.push({
+	// 							"latitude": c.latitude,
+	// 							"longitude": c.longitude,
+	// 							"address": data[key]
+	// 						})
+	// 					}
+	// 				)
+	// 			} else {
+	// 				break;
+	// 			}
+	// 		}
+
+	// 		LocationService.updateCoordinateAddress(coordAddressData);
+
+	// 		if (cc.length > 0) {
+	// 			setTimeout(() => {
+	// 				this.getAddressByCoordinate(cc, false);
+	// 			}, 1080);
+	// 		}
+	// 	}
+	// }
+
+	// onShareAppMessage(e) {
+	// 	this.shareTipShow = false
+	// 	this.$apply()
+	// 	return {
+	// 		title: '原来高颜值小姐姐/小哥哥们都在这里......',
+	// 		path: '/pages/login/login',
+	// 		imageUrl: 'https://vxiaocheng-jh.oss-cn-beijing.aliyuncs.com/mercury/paoypao/shareAppMessagePic.jpg'
+	// 	}
+	// }
+
+	// finishRefresh() {}
+
+	// onPullDownRefresh() {}
+
+	// onReachBottom() {}
+}
+</script>

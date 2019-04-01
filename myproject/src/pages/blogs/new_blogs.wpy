@@ -325,7 +325,7 @@ import BottomLoader from '../../components/bottom_loader';
 
 export default class NewBlogs extends wepy.page {
 	config = {
-		navigationBarTitleText: "发现",
+		navigationBarTitleText: "首页",
 		enablePullDownRefresh: true
 	}
 
@@ -358,7 +358,7 @@ export default class NewBlogs extends wepy.page {
 		currentTab: 'recommend',
 		BlogsArray: [],
 		BlogsArray1: [],  //前3个
-		BlogsArray2: [],  //之后的
+		BlogsArray2: [{}, {}],  //之后的
 		isFinishLoad: false,
 		innerAudioContext: '',
 		audioPlayingExtraInfo: {},
