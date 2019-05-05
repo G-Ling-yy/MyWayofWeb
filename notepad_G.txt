@@ -1,0 +1,93 @@
+wepy 写一个微博列表，可以展示若干条微博，一个发布按钮，点击按钮进入发布页面，发布完成返回原页面并更新数据。
+
+1. wepy如何保存及获取本地数据；
+  微信小程序的接口： wx.setStorage() wx.getStorage()等接口；
+
+2. wepy如何自定义组件；
+
+3. wepy如何跳转页面并返回之前页；
+  navigator组件；
+
+4. wepy如何获取用户信息；
+
+
+微信小程序账号： 934830721@qq.com wx******_G
+// 阿里云账号： 934830721 （支付宝账号登陆）
+星秀泡泡小程序APPID： wx91bcb70a43f1d2e8
+163.com郵箱： m18860913014_1@163.com 163GDQ
+mySql: user=root&pwd=0123456
+星秀泡泡 testpaopao manager s:66668888
+测试环境:
+user： xctest
+pwd: 4ac57bcaf1c14aee93f38db1738ed1cc
+
+488 * 194 rpx
+
+account_service.js:
+getSelfId()获取用户Id
+
+blog_comment_service.js:
+getUserComments（）通过id获取我的评论的数据 
+
+notification_service.js:
+getNotifications() type=‘relate’@我
+
+		type="upvote" 被赞 
+
+blog.way:
+onload()拿数据渲染
+
+
+px修改为rpx的页面及组件 ：
+components/bottom_navi 108rpx
+blogs/blogs 108
+components/send_gitf 108```
+dating/datings 108
+notification/notification 108
+me/me 108
+
+组局详情：
+dating_service:
+getDating()
+
+组局广场：
+getDatings()
+
+发局按钮之前checkDatingAbility检查
+发布局按钮：
+获取组局类型和价格
+getDatingTypes（）
+
+确认发布：
+createDating（,,,,,,Uploader.uploadImages(this.imgs) ）
+time: "2018-11-09 14:08:00"
+Uploader.uploadImages(this.imgs) 
+
+我的组局：
+getMyJoinedDatings()获取数据
+
+getUserShareGiftCount 获取数字（1or0）1就增加送礼1次数
+
+
+1. ”我的“页面UI
+2.聊天室 添加 发送图标
+
+开发一个简单的电商服务data service
+1. 创建商品（商品支持多规格，比如一台iphone，土豪金的20元，天空灰的10元）
+2. 获取商品列表
+3. 创建一个商品（规格）的订单，支持一个订单中多个商品（规格）
+4. 获取订单详情（要包含商品集合信息，订单金额，下单时间等信息）
+
+put  system.op_counter  (user_id, type, id)  记录待办任务
+delete  system.op_counter  (type, id)  删除待办任务
+get  system.op_counters  ()  获取有待办任务的用户列表
+get  user.op_counters   ()  获取当前用户的待办任务
+get skep account.op_user (user_id) 获取是否运营账号
+'op_blog_comment', 'op_broadcast_comment', 'op_chat_message'
+
+blog.visiting (blog_id) 增加围观人数
+blog.hot_blogs()分页 首页热门悬赏列表
+
+_jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOjEsImNydV9pZCI6MSwiZXhwIjoiMjAxOS0wMy0wMSAxMTozMiIsImdyb3VwcyI6W10sImlhdCI6IjIwMjAtMDItMjkgMTE6MzIiLCJwaWQiOjEsInR5cGUiOjEsInVpZCI6MSwidXNlcl9pZCI6MSwidiI6MTgwNzE5fQ==.0H69Pylg6q+wn292/crkTmQTbPnCD5s5lb/qddw574o=
+
+
