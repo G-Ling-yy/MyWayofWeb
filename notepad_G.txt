@@ -20,6 +20,12 @@ mySql: user=root&pwd=0123456
 ≤‚ ‘ª∑æ≥:
 user£∫ xctest
 pwd: 4ac57bcaf1c14aee93f38db1738ed1cc
+≈›≈›∫ÛÃ®£∫
+user: manager
+pwd: dc120c3e372d9ba9998a52c9d8edcdcb
+√ø∆¡–„–„≤‚ ‘’À∫≈:
+user: yanxutest
+pwd: xctest1912
 
 488 * 194 rpx
 
